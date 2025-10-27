@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26ba6c07317611e4baa183159f29b9c8, type: 3}
-  m_Name: Teo
+  m_Name: Aris
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
-  characterName: Teo
-  description: "Post war knight who\u2019s lost his comrades. He will fight to keep
-    everyone else alive."
-  characterIcon: {fileID: 6015935153271221123, guid: 0b3f8fdd03c34824db5dcaeee6f07493, type: 3}
-  intelligence: 10
-  health: 90
-  speed: 30
-  strength: 70
+  characterName: Aris
+  description: ' A pyromaniac that really likes to mess with people for fun.'
+  characterIcon: {fileID: 0}
+  intelligence: 80
+  health: 40
+  speed: 40
+  strength: 40
   cost: 1
   passive: []
-  weapon: {fileID: 11400000, guid: dd553ff8249355b488d068dac039f23c, type: 2}
+  weapon: {fileID: 0}

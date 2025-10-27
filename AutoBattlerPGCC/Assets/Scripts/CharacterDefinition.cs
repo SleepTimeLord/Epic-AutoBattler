@@ -8,6 +8,7 @@ public class CharacterDefinition : ScriptableObject
     public string description;
     public GameObject characterIcon;
     [Header("Character Stats")]
+    public int intelligence;
     public int health;
     public int speed;
     public int strength;

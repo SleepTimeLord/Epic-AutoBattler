@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd557a141811c20419e70ef3304ed126, type: 3}
-  m_Name: Sword
+  m_Name: Blaster
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
-  weaponName: Sword
-  weaponType: 0
-  weaponIcon: {fileID: 4818912048385510935, guid: 56ce0b8ac7dcc39408cfb24049708b0f, type: 3}
-  damage: 10
-  attackSpeed: 1
-  range: 2
+  weaponName: Blaster
+  weaponType: 1
+  weaponIcon: {fileID: 0}
+  damage: 15
+  attackSpeed: 0.8
+  range: 3
   additionalCost: 1

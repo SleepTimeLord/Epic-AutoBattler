@@ -18,4 +18,5 @@ public class WeaponDefinition : ScriptableObject
     public int damage;
     public float attackSpeed;
     public float range;
+    public int additionalCost;
 }
