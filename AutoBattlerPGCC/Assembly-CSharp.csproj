@@ -54,7 +54,9 @@
     <Compile Include="Assets\Scripts\Abilities\GoodEatsAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
     <Compile Include="Assets\Scripts\CharacterBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogCharacter.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogLine.cs" />
     <Compile Include="Assets\Scripts\SetCard.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />
