@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26ba6c07317611e4baa183159f29b9c8, type: 3}
-  m_Name: Aris
+  m_Name: Sichi
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
-  characterName: Aris
-  description: ' A pyromaniac that really likes to mess with people for fun.'
+  guid: 4794ad43-2dc2-4e5e-b7ab-98af48f45347
+  characterName: Sichi
+  description: "A ranger who\u2019s fast and nimble with her work. She\u2019s extroverted
+    and very social with others."
   characterIcon: {fileID: 0}
-  intelligence: 80
-  health: 40
-  speed: 40
+  intelligence: 40
+  health: 50
+  speed: 70
   strength: 40
   cost: 1
   passive: []

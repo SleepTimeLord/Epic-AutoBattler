@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ba6c07317611e4baa183159f29b9c8, type: 3}
   m_Name: Teo
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  guid: bcd7b22b-b879-4d4f-9b8d-ecbdc11e9442
   characterName: Teo
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
@@ -22,4 +23,4 @@ MonoBehaviour:
   strength: 70
   cost: 1
   passive: []
-  weapon: {fileID: 11400000, guid: dd553ff8249355b488d068dac039f23c, type: 2}
+  weapon: {fileID: 0}
