@@ -8,7 +8,7 @@ public class RampingBloodlustAbility : AbilityDefinition
     public int speedPerStack;
     public int maxStacks;
 
-    public override void ActivateAbility(GameObject user)
+    public override void ActivateAbility(CharacterBehavior user)
     {
         base.ActivateAbility(user);
         // every kill increases damage, intelligence, and speed by defined amounts, up to maxStacks

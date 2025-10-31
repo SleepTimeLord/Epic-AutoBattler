@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // This class handles character behavior in the game.
 // It is intended to be attached to character GameObject found in CharacterDefinition.
@@ -35,12 +37,12 @@ public class CharacterBehavior : MonoBehaviour
     }
     void Start()
     {
-        
+        ability[1].ActivateAbility(this.gameObject.GetComponent<CharacterBehavior>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

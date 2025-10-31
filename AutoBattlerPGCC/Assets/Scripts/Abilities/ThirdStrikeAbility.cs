@@ -5,7 +5,7 @@ public class ThirdStrikeAbility : AbilityDefinition
 {
     public int damage;
 
-    public override void ActivateAbility(GameObject user)
+    public override void ActivateAbility(CharacterBehavior user)
     {
         base.ActivateAbility(user);
 
