@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   weaponName: Sword
   weaponType: 0
-  weaponIcon: {fileID: 4818912048385510935, guid: 56ce0b8ac7dcc39408cfb24049708b0f, type: 3}
+  weaponGameObject: {fileID: 4818912048385510935, guid: 56ce0b8ac7dcc39408cfb24049708b0f, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 76a1d3a183e6434489b4c5a27f667679, type: 3}
   damage: 10
   attackSpeed: 1
   range: 2

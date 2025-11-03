@@ -13,7 +13,8 @@ public class WeaponDefinition : ScriptableObject
     [Header("Weapon Info")]
     public string weaponName;
     public WeaponType weaponType;
-    public GameObject weaponIcon;
+    public GameObject weaponGameObject;
+    public Sprite weaponIcon;
     [Header("Weapon Stats")]
     public int damage;
     public float attackSpeed;

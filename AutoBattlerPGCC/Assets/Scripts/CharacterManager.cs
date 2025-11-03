@@ -41,6 +41,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         allyCharacters[character.instanceID] = character;
+        SetCharacterCost(character);
         SetCharacterCard(character);
     }
 
@@ -54,6 +55,7 @@ public class CharacterManager : MonoBehaviour
             return;
         }
         enemyCharacters[character.instanceID] = character;
+        SetCharacterCost(character);
     }
 
     // Method to get an ally character by instanceID
@@ -151,15 +153,20 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.health = character.health;
         characterBehavior.speed = character.speed;
         characterBehavior.strength = character.strength;
-        // calculate and set cost of character
-        characterBehavior.cost = character.cost + character.weapon.additionalCost;
+        characterBehavior.cost = character.cost;
+    }
+
+    // calculate and set cost of character
+    private void SetCharacterCost(CharacterCreate character)
+    {
+        character.cost = character.cost + character.weapon.additionalCost;
         if (character.abilities != null)
         {
-            foreach (var ability in character.abilities)
+            foreach(var ability in character.abilities)
             {
-                characterBehavior.cost += ability.additionalCost;
+                character.cost += ability.additionalCost;
             }
-        }  
+        }
     }
 
     // Sets character abilities include unique ability
@@ -226,6 +233,9 @@ public class CharacterManager : MonoBehaviour
             {
                 cardSetter.instanceID = character.instanceID;
                 cardSetter.characterDescriptionText.text = character.description;
+                cardSetter.characterCost.text = character.cost.ToString();
+                cardSetter.characterHealth.text = character.health.ToString();
+                cardSetter.swordIcon.sprite = character.weapon.weaponIcon;
                 cardSetter.uniqueSkillPlaceholder.sprite = character.uniqueAbilities[0].abilityIcon;
 
                 // makes sure that uniqueAbility icon is not the same as regular ability
