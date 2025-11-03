@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -26,9 +27,12 @@ public class CharacterBehavior : MonoBehaviour
     public int strength;
     public int cost;
     [Header("Character Abilities")]
-    public AbilityDefinition[] ability;
+    public List<AbilityDefinition> passiveAbility;
+    public List<AbilityDefinition> activeAbility;
     [Header("Weapon")]
     public WeaponDefinition weapon;
+    [Header("CharacterCard")]
+    public GameObject characterCard;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -37,7 +41,7 @@ public class CharacterBehavior : MonoBehaviour
     }
     void Start()
     {
-        ability[1].ActivateAbility(this.gameObject.GetComponent<CharacterBehavior>());
+
     }
 
     // Update is called once per frame

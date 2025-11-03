@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bfd14685e94ec964b93ed2fdf38f681c
+guid: c1c08e9454eeb1b43bc30d5a2c493786
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2006200701377485958
-    second: Cleanse_Skill_0
+      213: -5144568432529171278
+    second: boardEpic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cleanse_Skill_0
+      name: boardEpic_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 4
+        y: 1
+        width: 507
+        height: 238
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68c9eb998e477db10800000000000000
-      internalID: 2006200701377485958
+      spriteID: 2bc19688442da98b0800000000000000
+      internalID: -5144568432529171278
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cleanse_Skill_0: 2006200701377485958
+      boardEpic_0: -5144568432529171278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

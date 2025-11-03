@@ -1,4 +1,7 @@
+using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 using UnityEditor;
+using UnityEditor.U2D;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterDefinition", menuName = "Scriptable Objects/CharacterDefinition")]
@@ -22,7 +25,8 @@ public class CharacterDefinition : ScriptableObject
     [Header("Character Info")]
     public string characterName;
     public string description;
-    public GameObject characterIcon;
+    public GameObject characterTopdown;
+    public Sprite characterSprite;
     [Header("Character Stats")]
     public int intelligence;
     public int health;
@@ -30,6 +34,7 @@ public class CharacterDefinition : ScriptableObject
     public int strength;
     public int cost;
     [Header("Character Abilities")]
-    public AbilityDefinition[] abilities;
-    public WeaponDefinition weapon;
+    public AbilityDefinition[] uniqueAbilities;
+    [Header("Character Card")]
+    public GameObject characterCard;
 }

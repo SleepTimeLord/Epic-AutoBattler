@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bfd14685e94ec964b93ed2fdf38f681c
+guid: a371a02a677b6d943bf652dbae103dfc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2006200701377485958
-    second: Cleanse_Skill_0
+      213: -8334063741991627986
+    second: TeoEpic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cleanse_Skill_0
+      name: TeoEpic_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 189
+        y: 255
+        width: 124
+        height: 251
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68c9eb998e477db10800000000000000
-      internalID: 2006200701377485958
+      spriteID: e235023be25775c80800000000000000
+      internalID: -8334063741991627986
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 50c5c2398fc9d13408b7e58e936a1868
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +133,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Cleanse_Skill_0: 2006200701377485958
+      TeoEpic_0: -8334063741991627986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

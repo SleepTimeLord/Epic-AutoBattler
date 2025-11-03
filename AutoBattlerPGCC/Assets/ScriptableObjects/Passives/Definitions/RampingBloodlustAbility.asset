@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: RampingBloodlustAbility
   m_EditorClassIdentifier: Assembly-CSharp::RampingBloodlustAbility
   abilityName: Ramping Bloodlust
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: -5173866319819978083, guid: c6d99323044f62741a04cf955e062dc5, type: 3}
   description: 
+  abilityType: 0
   cooldown: 0
   additionalCost: 2
   damagePerStack: 2

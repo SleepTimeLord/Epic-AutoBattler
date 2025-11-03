@@ -52,6 +52,6 @@ public class CreateAndSpawn : MonoBehaviour
     }
     private void SpawnCharacter(InputAction.CallbackContext context)
     {
-        CharacterManager.Instance.SpawnAllyCharacter(characterInstanceID, characterSpawn.position);
+        CharacterManager.Instance.SpawnCharacter(characterInstanceID, characterSpawn.position, CharacterType.Ally);
     }
 }

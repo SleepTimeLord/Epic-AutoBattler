@@ -1,14 +1,20 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
 public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager Instance { get; private set; }
+    public GameObject cardContainer;
 
     private Dictionary<string, CharacterCreate> allyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
     {
@@ -35,6 +41,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         allyCharacters[character.instanceID] = character;
+        SetCharacterCard(character);
     }
 
     // Method to add an enemy character
@@ -54,6 +61,14 @@ public class CharacterManager : MonoBehaviour
     {
         if (allyCharacters.ContainsKey(instanceID))
         {
+            CharacterCreate character = allyCharacters[instanceID];
+            foreach(Transform card in cardContainer.transform)
+            {
+                if(card.GetComponent<CardSetter>().instanceID == instanceID)
+                {
+                    Destroy(card.gameObject); break;
+                }
+            }
             allyCharacters.Remove(instanceID);
         }
         else
@@ -76,12 +91,12 @@ public class CharacterManager : MonoBehaviour
     }
 
     // Method to spawn an ally character from dictionary in the game world
-    public void SpawnAllyCharacter(string characterID, Vector3 position)
+    public void SpawnCharacter(string characterID, Vector3 position, CharacterType characterType)
     {
         // find the character in the allyCharacters dictionary
-        if (allyCharacters.TryGetValue(characterID, out CharacterCreate character))
+        if (allyCharacters.TryGetValue(characterID, out CharacterCreate allyCharacter))
         {
-            CharacterBehavior characterBehavior = character.characterIcon.GetComponent<CharacterBehavior>();
+            CharacterBehavior characterBehavior = allyCharacter.characterTopdown.GetComponent<CharacterBehavior>();
 
             if (characterBehavior == null)
             {
@@ -90,43 +105,40 @@ public class CharacterManager : MonoBehaviour
             }
 
             // set character stats
-            SetCharacterStats(characterBehavior, character, CharacterType.Ally);
+            SetCharacterStats(characterBehavior, allyCharacter, characterType);
+            // set character abilities
+            SetCharacterAbilities(characterBehavior, allyCharacter);
+            // set character weapon
+            SetCharacterWeapon(characterBehavior, allyCharacter);
 
             // Instantiate the character's icon at the specified position
-            Instantiate(character.characterIcon, position, Quaternion.identity);
+            Instantiate(allyCharacter.characterTopdown, position, Quaternion.identity);
         }
-        else
+        else if (enemyCharacters.TryGetValue(characterID, out CharacterCreate enemyCharacter))
         {
-            Debug.LogError($"SpawnAllyCharacter: No ally character found with instanceID {characterID}");
-        }
-    }
-
-    public void SpawnEnemyCharacter(string characterID, Vector3 position)
-    {
-        // find the character in the enemyCharacters dictionary
-        if (enemyCharacters.TryGetValue(characterID, out CharacterCreate character))
-        {
-            CharacterBehavior characterBehavior = character.characterIcon.GetComponent<CharacterBehavior>();
+            CharacterBehavior characterBehavior = enemyCharacter.characterTopdown.GetComponent<CharacterBehavior>();
 
             if (characterBehavior == null)
             {
-                Debug.LogError($"SpawnEnemyCharacter: Character icon does not have CharacterBehavior component for instanceID {characterID}");
+                Debug.LogError($"SpawnAllyCharacter: Character icon does not have CharacterBehavior component for instanceID {characterID}");
                 return;
             }
 
-            // set character stats
-            SetCharacterStats(characterBehavior, character, CharacterType.Enemy);
+            // sets everything up
+            SetCharacterStats(characterBehavior, enemyCharacter, characterType);
+            SetCharacterAbilities(characterBehavior, enemyCharacter);
+            SetCharacterWeapon(characterBehavior, enemyCharacter);
 
             // Instantiate the character's icon at the specified position
-            Instantiate(character.characterIcon, position, Quaternion.identity);
+            Instantiate(enemyCharacter.characterTopdown, position, Quaternion.identity);
         }
-
         else
         {
-            Debug.LogError($"SpawnEnemyCharacter: No enemy character found with instanceID {characterID}");
+            Debug.LogError($"SpawnAllyCharacter: No character found with instanceID {characterID}");
         }
     }
 
+    // Sets character stats and cost
     private void SetCharacterStats(CharacterBehavior characterBehavior, CharacterCreate character, CharacterType characterType)
     {
         // set character type and info
@@ -148,8 +160,94 @@ public class CharacterManager : MonoBehaviour
                 characterBehavior.cost += ability.additionalCost;
             }
         }  
+    }
+
+    // Sets character abilities include unique ability
+    private void SetCharacterAbilities(CharacterBehavior characterBehavior, CharacterCreate character)
+    {
         // set abilities
-        characterBehavior.ability = character.abilities;
+        if (character.abilities != null)
+        {
+            foreach (var ability in character.abilities)
+            {
+                if (ability.abilityType == AbilityType.Passive)
+                {
+                    // makes sure that there are no duplicate ablilities
+                    if (characterBehavior.passiveAbility.Contains(ability))
+                    {
+                        characterBehavior.passiveAbility.Remove(ability);
+                        characterBehavior.passiveAbility.Add(ability);
+                    }
+                    else
+                        characterBehavior.passiveAbility.Add(ability);
+                }
+                else if (ability.abilityType == AbilityType.Active)
+                {
+                    if (characterBehavior.activeAbility.Contains(ability))
+                    {
+                        characterBehavior.activeAbility.Remove(ability);
+                        characterBehavior.activeAbility.Add(ability);
+                    }
+                    else
+                        characterBehavior.activeAbility.Add(ability);
+                }
+                else
+                {
+                    Debug.LogWarning($"SetCharacterAbilities: Unknown ability type for ability {ability.abilityName} in character {character.characterName}");
+                    continue;
+                }
+            }
+        }
+    }
+
+    private void SetCharacterWeapon(CharacterBehavior characterBehavior, CharacterCreate character)
+    {
+        // set weapon
         characterBehavior.weapon = character.weapon;
+        // TODO: Add logic to append the weapon to character model 
+    }
+
+    // set character card and instantiates an instance of it into a container
+    private void SetCharacterCard(CharacterCreate character)
+    {
+        CardSetter cardSetter = character.characterCard.GetComponent<CardSetter>();
+
+        if (cardSetter != null)
+        {
+            if (character.uniqueAbilities == null)
+            {
+                Debug.LogError("no uniqueAbilities found");
+            }
+            else if (character.abilities == null)
+            {
+                Debug.LogError("no regularAbilities found");
+            }
+            else 
+            {
+                cardSetter.instanceID = character.instanceID;
+                cardSetter.characterDescriptionText.text = character.description;
+                cardSetter.uniqueSkillPlaceholder.sprite = character.uniqueAbilities[0].abilityIcon;
+
+                // makes sure that uniqueAbility icon is not the same as regular ability
+                foreach (var ability in character.abilities)
+                {
+                    if (ability == character.uniqueAbilities[0])
+                    {
+                        continue;
+                    }
+                    else 
+                    {
+                        cardSetter.regularSkillPlaceholder.sprite = ability.abilityIcon;
+                        break;
+                    }
+                }
+
+                GameObject card = Instantiate(character.characterCard);
+                card.transform.SetParent(cardContainer.transform, false);
+                card.transform.localScale = Vector3.one;
+
+
+            }
+        }
     }
 }

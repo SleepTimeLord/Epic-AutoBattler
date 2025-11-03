@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bfd14685e94ec964b93ed2fdf38f681c
+guid: 79fef9973f3bd5d4482c58931384f82c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2006200701377485958
-    second: Cleanse_Skill_0
+      213: -5042842778971305509
+    second: cardEpic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cleanse_Skill_0
+      name: cardEpic_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 2
+        y: 4
+        width: 341
+        height: 505
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68c9eb998e477db10800000000000000
-      internalID: 2006200701377485958
+      spriteID: bd9854de539340ab0800000000000000
+      internalID: -5042842778971305509
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cleanse_Skill_0: 2006200701377485958
+      cardEpic_0: -5042842778971305509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

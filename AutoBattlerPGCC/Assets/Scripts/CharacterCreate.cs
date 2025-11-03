@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterCreate
@@ -11,12 +12,15 @@ public class CharacterCreate
     public string characterDefinitionID; // Reference to CharacterDefinition GUID
     public string characterName;
     public string description;
-    public GameObject characterIcon;
+    public GameObject characterTopdown;
+    public Sprite characterSprite;
+    public GameObject characterCard;
     public int intelligence;
     public int health;
     public int speed;
     public int strength;
     public int cost;
+    public AbilityDefinition[] uniqueAbilities;
     public AbilityDefinition[] abilities;
     public WeaponDefinition weapon;
 
@@ -46,14 +50,18 @@ public class CharacterCreate
             characterDefinition = charDef,
             characterName = charDef.characterName,
             description = charDef.description,
-            characterIcon = charDef.characterIcon,
+            characterTopdown = charDef.characterTopdown,
+            characterSprite = charDef.characterSprite,
+            characterCard = charDef.characterCard,
             intelligence = charDef.intelligence,
             health = charDef.health,
             speed = charDef.speed,
             strength = charDef.strength,
             cost = charDef.cost,
             // Assign passive and weapon from parameters
-            abilities = abilitiesDef,
+            uniqueAbilities = charDef.uniqueAbilities,
+            // Makes sure that unique abilities becomes part of that abilities for easy calculation
+            abilities = abilitiesDef.Concat(charDef.uniqueAbilities).ToArray(),
             weapon = weaponDef,
         };
 

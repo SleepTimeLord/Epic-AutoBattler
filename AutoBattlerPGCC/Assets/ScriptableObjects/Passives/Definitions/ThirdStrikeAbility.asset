@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: ThirdStrikeAbility
   m_EditorClassIdentifier: Assembly-CSharp::ThirdStrikeAbility
   abilityName: Third Strike
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: 1350676590106568360, guid: 1b02f9a91a0f59f48904ac2485be21f0, type: 3}
   description: 
+  abilityType: 0
   cooldown: 0
   additionalCost: 3
   damage: 3
