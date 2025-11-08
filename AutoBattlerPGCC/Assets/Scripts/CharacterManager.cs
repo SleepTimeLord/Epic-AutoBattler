@@ -16,6 +16,8 @@ public class CharacterManager : MonoBehaviour
     private Dictionary<string, CharacterCreate> allyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
 
+    private Dictionary<string, GameObject> spawnedCharacters = new Dictionary<string, GameObject>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -114,7 +116,8 @@ public class CharacterManager : MonoBehaviour
             SetCharacterWeapon(characterBehavior, allyCharacter);
 
             // Instantiate the character's icon at the specified position
-            Instantiate(allyCharacter.characterTopdown, position, Quaternion.identity);
+            GameObject spawnedAlly = Instantiate(allyCharacter.characterTopdown, position, Quaternion.identity);
+            spawnedCharacters[characterID] = spawnedAlly;
         }
         else if (enemyCharacters.TryGetValue(characterID, out CharacterCreate enemyCharacter))
         {
@@ -132,12 +135,23 @@ public class CharacterManager : MonoBehaviour
             SetCharacterWeapon(characterBehavior, enemyCharacter);
 
             // Instantiate the character's icon at the specified position
-            Instantiate(enemyCharacter.characterTopdown, position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyCharacter.characterTopdown, position, Quaternion.identity);
+            spawnedCharacters[characterID] = spawnedEnemy;
         }
         else
         {
             Debug.LogError($"SpawnAllyCharacter: No character found with instanceID {characterID}");
         }
+    }
+
+    public void DespawnCharacter(string characterID)
+    {
+        if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
+        {
+            Destroy(character);
+            spawnedCharacters.Remove(characterID);
+        }
+
     }
 
     // Sets character stats and cost
@@ -254,9 +268,6 @@ public class CharacterManager : MonoBehaviour
 
                 GameObject card = Instantiate(character.characterCard);
                 card.transform.SetParent(cardContainer.transform, false);
-                card.transform.localScale = Vector3.one;
-
-
             }
         }
     }

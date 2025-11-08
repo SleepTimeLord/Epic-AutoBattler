@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 109137485144697555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.65637004, y: 1.11854, z: 0}
+  m_LocalPosition: {x: 0.384, y: 0.383, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 253490238043156423}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25637, y: 0.66854, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 4288608729075077567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14363, y: 1.11854, z: 0}
+  m_LocalPosition: {x: -0.384, y: 0.383, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -296,9 +296,9 @@ Transform:
   m_GameObject: {fileID: 6015935153271221123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25637, y: -0.66854, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7834366436160272453}
   - {fileID: 4183243131248324243}
@@ -318,13 +318,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   intialHealth: 0
-  characterName: 
-  description: 
+  characterName: Teo
+  instanceID: c5754c6e-05a7-442e-80bf-bafa16152aa6
+  description: "Post war knight who\u2019s lost his comrades. He will fight to keep
+    everyone else alive."
   characterType: 0
-  intelligence: 0
-  health: 0
-  speed: 0
-  strength: 0
-  cost: 0
-  passive: []
-  weapon: {fileID: 0}
+  intelligence: 10
+  health: 90
+  speed: 30
+  strength: 70
+  cost: 7
+  passiveAbility:
+  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
+  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
+  activeAbility: []
+  weapon: {fileID: 11400000, guid: dd553ff8249355b488d068dac039f23c, type: 2}
+  characterCard: {fileID: 0}

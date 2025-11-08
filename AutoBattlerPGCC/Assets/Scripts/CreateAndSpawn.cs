@@ -28,20 +28,7 @@ public class CreateAndSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        // Create character
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            CharacterCreate character = CharacterCreate.CreateFromDefinition(characterDefinition, weaponDefinition, abilityDefinition);
-            characterInstanceID = character.instanceID;
-            print("Created character: " + character.characterName + character.instanceID);
 
-        }
-
-        // Spawn character
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            CharacterManager.Instance.SpawnAllyCharacter(characterInstanceID, characterSpawn.position);
-        }*/
     }
 
     private void CreateCharacter(InputAction.CallbackContext context)

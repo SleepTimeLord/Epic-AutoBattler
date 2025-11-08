@@ -55,6 +55,7 @@
     <UnityVersion>6000.2.6f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -64,13 +65,13 @@
     <Compile Include="Assets\Scripts\Abilities\ThirdStrikeAbility.cs" />
     <Compile Include="Assets\Scripts\CardSetter.cs" />
     <Compile Include="Assets\Scripts\AbilityDefinition.cs" />
+    <Compile Include="Assets\Scripts\SummonManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\RampingBloodlustAbility.cs" />
     <Compile Include="Assets\InputSystem\Input.cs" />
     <Compile Include="Assets\Scripts\Abilities\GoodEatsAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
     <Compile Include="Assets\Scripts\CharacterBehavior.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
-    <Compile Include="Assets\Scripts\SetCard.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />
   </ItemGroup>
