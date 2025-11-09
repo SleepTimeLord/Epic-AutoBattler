@@ -13,20 +13,23 @@ public class CardSetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public Image swordIcon;
     public string instanceID;
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void Awake()
     {
-        SummonManager.Instance.SummonCharacter(instanceID);
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    { 
+        if (!SummonManager.Instance.isPlacingCard && !SummonManager.Instance.IsCardOnBoard(gameObject.GetComponent<CardSetter>())) {
+            SummonManager.Instance.SummonCharacter(instanceID);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // make this bigger 
-        Debug.Log($"cursor touching {this.gameObject}");
+        // make this bigger
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         // go back to normal
-        print("cursor exit object");
     }
 }

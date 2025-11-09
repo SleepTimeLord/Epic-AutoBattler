@@ -271,4 +271,15 @@ public class CharacterManager : MonoBehaviour
             }
         }
     }
+
+    public CharacterCreate GetCharacter(string InstanceID) {
+        if (allyCharacters.TryGetValue(InstanceID, out CharacterCreate value))
+        {
+            return value;
+        }
+        else {
+            Debug.LogError("No character in ally characters that have that instanceID");
+            return null;
+        }
+    }
 }
