@@ -62,18 +62,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CreateAndSpawn.cs" />
-    <Compile Include="Assets\Scripts\Abilities\ThirdStrikeAbility.cs" />
     <Compile Include="Assets\Scripts\CardSetter.cs" />
     <Compile Include="Assets\Scripts\AbilityDefinition.cs" />
     <Compile Include="Assets\Scripts\SummonManager.cs" />
-    <Compile Include="Assets\Scripts\Abilities\RampingBloodlustAbility.cs" />
     <Compile Include="Assets\InputSystem\Input.cs" />
-    <Compile Include="Assets\Scripts\Abilities\GoodEatsAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
+    <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\GravityControlAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\ThirdStrikeAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterBehavior.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\GoodEatsAbility.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\CleanseAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\SlownessPotionAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\SlipAwayAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\HeartstopAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\RegularAbilities\LightningRodAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />
+    <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\RampingBloodlustAbility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

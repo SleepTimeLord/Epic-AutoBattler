@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6d99323044f62741a04cf955e062dc5
+guid: 8a71a1d656df4cc4ea82343515ee726a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5173866319819978083
-    second: Heartstop_Skill_0
+      213: -1528976297289112056
+    second: SlipAway_UniqueSkill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartstop_Skill_0
+      name: SlipAway_UniqueSkill_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9ac5c39efbb238b0800000000000000
-      internalID: -5173866319819978083
+      spriteID: 8062712982cf7cae0800000000000000
+      internalID: -1528976297289112056
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartstop_Skill_0: -5173866319819978083
+      SlipAway_UniqueSkill_0: -1528976297289112056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6d99323044f62741a04cf955e062dc5
+guid: c4573d6dfe8beb44ebcefa139d0c33eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5173866319819978083
-    second: Heartstop_Skill_0
+      213: 694811781487403712
+    second: RampingBloodlust_UniqueSkill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartstop_Skill_0
+      name: RampingBloodlust_UniqueSkill_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9ac5c39efbb238b0800000000000000
-      internalID: -5173866319819978083
+      spriteID: 0c2205d42a774a900800000000000000
+      internalID: 694811781487403712
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartstop_Skill_0: -5173866319819978083
+      RampingBloodlust_UniqueSkill_0: 694811781487403712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

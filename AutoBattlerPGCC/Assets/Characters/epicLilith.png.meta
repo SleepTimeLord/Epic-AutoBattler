@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c6d99323044f62741a04cf955e062dc5
+guid: ba36fad12e04dcf49b5fd3e560dd5efb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5173866319819978083
-    second: Heartstop_Skill_0
+      213: 1908110545521356292
+    second: epicLilith_0
+  - first:
+      213: 4610678686587870918
+    second: epicLilith_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +55,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 126, y: 1185, z: 341, w: 107}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartstop_Skill_0
+      name: epicLilith_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 257
+        y: 1308
+        width: 443
+        height: 479
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9ac5c39efbb238b0800000000000000
-      internalID: -5173866319819978083
+      spriteID: 40e2af97e68fa7a10800000000000000
+      internalID: 1908110545521356292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epicLilith_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1034
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ced88746db6cff30800000000000000
+      internalID: 4610678686587870918
       vertices: []
       indices: 
       edges: []
@@ -125,8 +150,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: f47bdedd3f59a874db8d78d80edfa25a
+    internalID: -1589983031
     vertices: []
     indices: 
     edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartstop_Skill_0: -5173866319819978083
+      epicLilith_0: 1908110545521356292
+      epicLilith_1: 4610678686587870918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

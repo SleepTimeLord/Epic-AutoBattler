@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6d99323044f62741a04cf955e062dc5
+guid: cefbf6e5098801849a4f095e96dd9992
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5173866319819978083
-    second: Heartstop_Skill_0
+      213: 3237797513216941983
+    second: GravityControl_UnqiueSkill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartstop_Skill_0
+      name: GravityControl_UnqiueSkill_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9ac5c39efbb238b0800000000000000
-      internalID: -5173866319819978083
+      spriteID: f9f50f50fa7feec20800000000000000
+      internalID: 3237797513216941983
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartstop_Skill_0: -5173866319819978083
+      GravityControl_UnqiueSkill_0: 3237797513216941983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

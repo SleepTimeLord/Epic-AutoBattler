@@ -92,7 +92,6 @@ public class SummonManager : MonoBehaviour
             // this also skips the placeholder
             if (cardInfo == null)
             {
-                Debug.LogError(card + " Doesn't have a CardSetter Script");
                 continue;
             }
 
