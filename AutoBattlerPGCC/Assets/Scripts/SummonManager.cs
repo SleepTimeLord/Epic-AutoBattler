@@ -58,11 +58,11 @@ public class SummonManager : MonoBehaviour
         {
             //DesummonCharacter(currentSummonedID);
             // finishes desummoning character before setingcurrentsummon
-            StartCoroutine(BackToHand(currentSummonedID, instanceID));
+            StartCoroutine(SummonNewCard(currentSummonedID, instanceID));
         }
     }
 
-    private IEnumerator BackToHand(string currentInstanceID, string newInstanceID) 
+    private IEnumerator SummonNewCard(string currentInstanceID, string newInstanceID) 
     {
         int lastIndex = cardContainer.transform.childCount;
         placeHolderLayout.ignoreLayout = false;
@@ -79,6 +79,7 @@ public class SummonManager : MonoBehaviour
         SetCurrentSummon(newInstanceID);
 
         StartCoroutine(LerpToPosition(currentSummoned, spawnPosition));
+        CharacterManager.Instance.SpawnCharacter(newInstanceID, spawnPosition.position, CharacterType.Ally);
     }
 
 

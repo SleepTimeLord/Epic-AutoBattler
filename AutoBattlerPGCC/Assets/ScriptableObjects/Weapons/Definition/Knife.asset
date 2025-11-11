@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   weaponName: Knife
   weaponType: 0
-  weaponIcon: {fileID: 0}
+  weaponGameObject: {fileID: 3726617558226410150, guid: 4ec4da8580f6448498f9ea94a109e224, type: 3}
+  weaponIcon: {fileID: 761100573506273824, guid: 9b7cad97896e3064aa4c6ab43cb182d2, type: 3}
+  holdOffset: {x: -0.56428605, y: 0.3942857, z: 0}
   damage: 5
   attackSpeed: 1.5
   range: 1

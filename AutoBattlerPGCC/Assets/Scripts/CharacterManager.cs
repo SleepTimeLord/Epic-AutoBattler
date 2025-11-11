@@ -225,7 +225,6 @@ public class CharacterManager : MonoBehaviour
     {
         // set weapon
         characterBehavior.weapon = character.weapon;
-        // TODO: Add logic to append the weapon to character model 
     }
 
     // set character card and instantiates an instance of it into a container

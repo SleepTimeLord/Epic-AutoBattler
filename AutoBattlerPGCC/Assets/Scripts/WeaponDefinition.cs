@@ -15,6 +15,7 @@ public class WeaponDefinition : ScriptableObject
     public WeaponType weaponType;
     public GameObject weaponGameObject;
     public Sprite weaponIcon;
+    public Vector3 holdOffset;
     [Header("Weapon Stats")]
     public int damage;
     public float attackSpeed;
