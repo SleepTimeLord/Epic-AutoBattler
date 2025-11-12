@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe782ace561a3c4280fb8cc26b95ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
+  testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   intialHealth: 0
   characterName: Teo
   instanceID: c5754c6e-05a7-442e-80bf-bafa16152aa6
@@ -334,7 +335,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
   activeAbility: []
   weapon: {fileID: 11400000, guid: dd553ff8249355b488d068dac039f23c, type: 2}
+  currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
+  attackAnimation: {fileID: 0}
 --- !u!1 &7395792035056420155
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.TextCore.Text;
 
@@ -15,6 +17,9 @@ public enum CharacterType
 }
 public class CharacterBehavior : MonoBehaviour
 {
+    [SerializeField]
+    private InputActionReference testAttack;
+    [Header("Initial Stats")]
     public int intialHealth;
     [Header("Character Info")]
     public string characterName;
@@ -32,16 +37,19 @@ public class CharacterBehavior : MonoBehaviour
     public List<AbilityDefinition> activeAbility;
     [Header("Weapon")]
     public WeaponDefinition weapon;
+    public GameObject currentWeapon;
     [Header("CharacterCard")]
     public GameObject characterCard;
+    [Header("CharacterAnimations")]
+    public Animator attackAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         // sets up the singleton instance
-        // TODO: Add logic to append the weapon to character model 
-        Transform weaponContainer = transform.Find("WeaponContainer");
+        Transform weaponContainer = transform.Find("Arms/WeaponContainer");
         if (weaponContainer == null) {
+            Debug.LogWarning("WeaponContainer not found on CharacterBehavior.");
             return; 
         
         }
@@ -61,23 +69,39 @@ public class CharacterBehavior : MonoBehaviour
             }
             AttachWeapon(weaponContainer);
         }
+
+        attackAnimation = GetComponentInChildren<Animator>();
+        if (attackAnimation == null) 
+        {
+            Debug.LogWarning("Animator component not found on CharacterBehavior.");
+        }
+    }
+
+    private void OnEnable()
+    {
+        testAttack.action.performed += Attack;
+    }
+    private void OnDisable()
+    {
+        testAttack.action.performed -= Attack;
     }
 
     private void AttachWeapon(Transform weaponContainer)
     {
         // instantiate new weapon
-        GameObject weaponGO = Instantiate(weapon.weaponGameObject, weaponContainer);
-        weaponGO.transform.localPosition = weapon.holdOffset;
-        weaponGO.transform.localRotation = Quaternion.identity;
+        currentWeapon = Instantiate(weapon.weaponGameObject, weaponContainer);
+        currentWeapon.transform.localPosition = weapon.holdOffset;
+        currentWeapon.transform.localRotation = Quaternion.identity;
     }
-    void Start()
+
+    private void Update()
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Attack(InputAction.CallbackContext context) 
     {
-
+        weapon.Attack(this);
     }
+
 }

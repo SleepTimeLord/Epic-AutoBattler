@@ -73,6 +73,8 @@
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\GoodEatsAbility.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\CleanseAbility.cs" />
+    <Compile Include="Assets\Scripts\SlashDefinition.cs" />
+    <Compile Include="Assets\Scripts\AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\SlownessPotionAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\SlipAwayAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
