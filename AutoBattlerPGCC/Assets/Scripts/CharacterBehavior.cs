@@ -92,6 +92,7 @@ public class CharacterBehavior : MonoBehaviour
         currentWeapon = Instantiate(weapon.weaponGameObject, weaponContainer);
         currentWeapon.transform.localPosition = weapon.holdOffset;
         currentWeapon.transform.localRotation = Quaternion.identity;
+        currentWeapon.transform.localScale = weapon.scaleOffset;
     }
 
     private void Update()
@@ -104,4 +105,13 @@ public class CharacterBehavior : MonoBehaviour
         weapon.Attack(this);
     }
 
+    public void TakeDamage(int damageAmount) 
+    {
+        health -= damageAmount;
+        if (health <= 0) 
+        {
+            // Handle character death
+            return;
+        }
+    }
 }

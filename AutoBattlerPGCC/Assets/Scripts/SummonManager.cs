@@ -69,6 +69,8 @@ public class SummonManager : MonoBehaviour
         placeHolder.transform.SetSiblingIndex(lastIndex);
         // despawns physical instance of character
         CharacterManager.Instance.DespawnCharacter(currentInstanceID);
+        // updates the CardSetter to new stats
+        CharacterManager.Instance.UpdateCharacterCard(currentInstanceID, currentSummoned.GetComponent<CardSetter>());
         // goes bakc to the intial position 
         yield return StartCoroutine(LerpToPosition(currentSummoned, placeHolder.transform));
         // after it stops lerping sets placeholder to ignore the layout

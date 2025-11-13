@@ -45,6 +45,7 @@ public class CharacterManager : MonoBehaviour
         allyCharacters[character.instanceID] = character;
         SetCharacterCost(character);
         SetCharacterCard(character);
+        SpawnCharacterCard(character);
     }
 
     // Method to add an enemy character
@@ -148,6 +149,9 @@ public class CharacterManager : MonoBehaviour
     {
         if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
         {
+            // update character stats before despawning
+            UpdateAllyCharacterStats(characterID, GetCharacter(characterID), character.GetComponent<CharacterBehavior>());
+
             Destroy(character);
             spawnedCharacters.Remove(characterID);
         }
@@ -168,6 +172,30 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.speed = character.speed;
         characterBehavior.strength = character.strength;
         characterBehavior.cost = character.cost;
+    }
+
+    public void UpdateAllyCharacterStats(string characterID, CharacterCreate character, CharacterBehavior characterBehavior)
+    {
+        if (allyCharacters.TryGetValue(characterID, out CharacterCreate allyCharacter))
+        {
+            if (characterBehavior != null)
+            {
+                // update stats
+                allyCharacter.intelligence = characterBehavior.intelligence;
+                allyCharacter.health = characterBehavior.health;
+                allyCharacter.speed = characterBehavior.speed;
+                allyCharacter.strength = characterBehavior.strength;
+                allyCharacter.cost = characterBehavior.cost;
+            }
+            else
+            {
+                Debug.LogError($"UpdateCharacterStats: No CharacterBehavior found on spawned character with instanceID {characterID}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
+        }
     }
 
     // calculate and set cost of character
@@ -227,6 +255,36 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.weapon = character.weapon;
     }
 
+    public void UpdateCharacterCard(string instanceID, CardSetter card) 
+    { 
+        CharacterCreate character = GetCharacter(instanceID);
+        card.characterDescriptionText.text = character.description;
+        card.characterCost.text = character.cost.ToString();
+        card.characterHealth.text = character.health.ToString();
+        card.swordIcon.sprite = character.weapon.weaponIcon;
+        card.uniqueSkillPlaceholder.sprite = character.uniqueAbilities[0].abilityIcon;
+        // makes sure that uniqueAbility icon is not the same as regular ability
+        foreach (var ability in character.abilities)
+        {
+            if (ability == character.uniqueAbilities[0])
+            {
+                continue;
+            }
+            else
+            {
+                card.regularSkillPlaceholder.sprite = ability.abilityIcon;
+                break;
+            }
+        }
+    }
+
+    // instantiate an instance of character card into a container
+    private void SpawnCharacterCard(CharacterCreate character) 
+    {
+        GameObject card = Instantiate(character.characterCard);
+        card.transform.SetParent(cardContainer.transform, false);
+    }
+
     // set character card and instantiates an instance of it into a container
     private void SetCharacterCard(CharacterCreate character)
     {
@@ -264,9 +322,6 @@ public class CharacterManager : MonoBehaviour
                         break;
                     }
                 }
-
-                GameObject card = Instantiate(character.characterCard);
-                card.transform.SetParent(cardContainer.transform, false);
             }
         }
     }

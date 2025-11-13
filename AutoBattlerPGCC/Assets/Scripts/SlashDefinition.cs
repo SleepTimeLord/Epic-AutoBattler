@@ -24,6 +24,12 @@ public class SlashDefinition : WeaponDefinition
 
         var spriteRenderer = userStats.currentWeapon.GetComponent<SpriteRenderer>();
 
+        // change speed based on weapon base attack speed and character speed stat
+        float attackSpeedModifier = attackSpeed + (userStats.speed * 0.01f);
+
+        // Apply to Animator
+        userStats.attackAnimation.SetFloat("AttackSpeed", attackSpeedModifier);
+
         // Determine direction and play animation
         // The flip logic (setting flipY) will now be handled by the Animation Event defined on the clip itself.
         if (spriteRenderer != null && !spriteRenderer.flipY)

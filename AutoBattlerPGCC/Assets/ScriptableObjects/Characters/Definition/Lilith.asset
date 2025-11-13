@@ -16,7 +16,7 @@ MonoBehaviour:
   characterName: Lilith
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
-  characterTopdown: {fileID: 2781634228700642330, guid: da666fa359610544595887049454af37, type: 3}
+  characterTopdown: {fileID: 6008052734616835099, guid: bdd80df4ed4402f478c27ed855297db1, type: 3}
   characterSprite: {fileID: 1908110545521356292, guid: ba36fad12e04dcf49b5fd3e560dd5efb, type: 3}
   intelligence: 30
   health: 40
