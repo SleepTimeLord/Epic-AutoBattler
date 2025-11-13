@@ -93,6 +93,7 @@ public class CharacterBehavior : MonoBehaviour
         currentWeapon.transform.localPosition = weapon.holdOffset;
         currentWeapon.transform.localRotation = Quaternion.identity;
         currentWeapon.transform.localScale = weapon.scaleOffset;
+        currentWeapon.GetComponent<Collider2D>().enabled = false; // disable collider by default
     }
 
     private void Update()
@@ -114,4 +115,5 @@ public class CharacterBehavior : MonoBehaviour
             return;
         }
     }
+
 }

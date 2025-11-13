@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class AnimationTrigger : MonoBehaviour
@@ -44,5 +45,20 @@ public class AnimationTrigger : MonoBehaviour
                 Debug.LogWarning("Current weapon is missing a SpriteRenderer when attempting to flip.");
             }
         }
+    }
+
+    public void EnableWeaponCollider(int enableValue) 
+    { 
+        Transform weapon = characterBehavior.currentWeapon.transform;
+        
+        if (weapon == null)
+            {
+            Debug.LogWarning("Current weapon transform not found when attempting to enable collider.");
+            return;
+        }
+
+        bool enable = enableValue != 0;
+
+        weapon.GetComponent<Collider2D>().enabled = enable;
     }
 }

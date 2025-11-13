@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\HeartstopAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\LightningRodAbility.cs" />
+    <Compile Include="Assets\Scripts\HitCharacter.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />
     <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\RampingBloodlustAbility.cs" />
   </ItemGroup>
