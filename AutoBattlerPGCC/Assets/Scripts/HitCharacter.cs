@@ -16,11 +16,12 @@ public class HitCharacter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CharacterBehavior user = GetComponentInParent<CharacterBehavior>();
         CharacterBehavior character = collision.GetComponent<CharacterBehavior>();
         if (character != null)
         {
-            Debug.Log($"Hit character: {character.characterName}");
             // Here you can add logic to apply damage or effects to the character
+            character.TakeDamage(user.GetAttackDamage());
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6809033878575832305}
   - component: {fileID: 2029590579569293272}
   - component: {fileID: 4105911152878693708}
+  - component: {fileID: 4211060743252137359}
   m_Layer: 0
   m_Name: knifeGO
   m_TagString: Untagged
@@ -137,3 +138,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.09134594, y: 0.03280486}
   m_EdgeRadius: 0
+--- !u!114 &4211060743252137359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356805041457579448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff09cbb4addac1546bba05b743108818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitCharacter

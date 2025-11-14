@@ -353,21 +353,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   intialHealth: 0
-  characterName: Teo
-  instanceID: 09881660-2dd9-475e-889d-dd6ce5e3b242
-  description: "Post war knight who\u2019s lost his comrades. He will fight to keep
-    everyone else alive."
+  characterName: Lilith
+  instanceID: d9282869-186b-4673-b81c-fd4d3bae14bf
+  description: "Introverted assassin that likes to work alone. She\u2019ll work with
+    others if required, but would rather do her own thing.  "
   characterType: 0
-  intelligence: 10
-  health: 90
-  speed: 30
-  strength: 70
+  intelligence: 30
+  health: 40
+  speed: 100
+  strength: 30
   cost: 7
   passiveAbility:
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
   - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
-  activeAbility: []
-  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
+  activeAbility:
+  - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
+  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
@@ -415,7 +416,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6008052734616835099}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

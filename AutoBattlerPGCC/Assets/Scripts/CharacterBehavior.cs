@@ -106,6 +106,11 @@ public class CharacterBehavior : MonoBehaviour
         weapon.Attack(this);
     }
 
+    public int GetAttackDamage()
+    {
+        return (int)(weapon.damage + (strength * 0.1f));
+    }
+
     public void TakeDamage(int damageAmount) 
     {
         health -= damageAmount;
