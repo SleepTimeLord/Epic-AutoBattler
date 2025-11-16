@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 400379274957000270}
   - component: {fileID: 7720751569290674125}
   - component: {fileID: 3729757510297932507}
+  - component: {fileID: -1720776901190809364}
   m_Layer: 0
   m_Name: Teo
   m_TagString: Untagged
@@ -244,7 +245,7 @@ MonoBehaviour:
   testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   intialHealth: 0
   characterName: Teo
-  instanceID: 3a7bcb44-c906-494c-858d-a10ea29f0dfa
+  instanceID: f5f17658-dcf0-4496-9d23-d16820ac57a5
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
@@ -324,6 +325,26 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-1720776901190809364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500055822379302310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: 7958335984974263062, guid: b5369442e1fb9884e9ebd11d00eaf034, type: 2}
+  m_BlackboardVariableOverridesList: []
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3913916549420035205
 GameObject:
   m_ObjectHideFlags: 0
