@@ -23,6 +23,9 @@ public class WeaponDefinition : ScriptableObject
     public float attackSpeed;
     public float range;
     public int additionalCost;
+    public float attackSlow;
+    public float attackKnockbackDistance;
+    public float attackKnockbackDuration;
 
     public virtual void Attack(CharacterBehavior userStats) 
     { 

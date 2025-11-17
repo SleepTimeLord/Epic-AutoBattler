@@ -61,4 +61,14 @@ public class AnimationTrigger : MonoBehaviour
 
         weapon.GetComponent<Collider2D>().enabled = enable;
     }
+
+    public void SetMovementSpeedSlow() 
+    { 
+        characterBehavior.ApplyAttackSlowSpeed();
+    }
+
+    public void ResetMovementSpeed() 
+    { 
+        characterBehavior.ResetSpeed();
+    }
 }

@@ -30,7 +30,7 @@ public class CharacterDefinition : ScriptableObject
     [Header("Character Stats")]
     public int intelligence;
     public int health;
-    public int speed;
+    public float speed;
     public int strength;
     public int cost;
     [Header("Character Abilities")]

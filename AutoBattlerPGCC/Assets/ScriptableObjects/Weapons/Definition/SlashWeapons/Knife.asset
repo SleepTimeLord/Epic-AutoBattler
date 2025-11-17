@@ -22,6 +22,9 @@ MonoBehaviour:
   attackSpeed: 1.5
   range: 1
   additionalCost: 1
+  attackSlow: 0.2
+  attackKnockbackDistance: 2
+  attackKnockbackDuration: 0.1
   attackAnimation: {fileID: 9100000, guid: d9923d11cb0323643b4dec75a653a550, type: 2}
   rightAttackName: SwingRight
   leftAttackName: SwingLeft

@@ -21,7 +21,7 @@ public class HitCharacter : MonoBehaviour
         if (character != null)
         {
             // Here you can add logic to apply damage or effects to the character
-            character.TakeDamage(user.GetAttackDamage());
+            character.TakeDamage(user.GetAttackDamage(), user.weapon, user.transform.position);
         }
     }
 }

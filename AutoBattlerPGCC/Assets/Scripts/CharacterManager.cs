@@ -163,6 +163,7 @@ public class CharacterManager : MonoBehaviour
     {
         // set character type and info
         characterBehavior.characterType = characterType;
+        characterBehavior.characterDefinition = character.characterDefinition;
         characterBehavior.characterName = character.characterName;
         characterBehavior.instanceID = character.instanceID;
         characterBehavior.description = character.description;

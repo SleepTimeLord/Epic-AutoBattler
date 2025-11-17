@@ -64,20 +64,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CreateAndSpawn.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\KnockbackCharacterAction.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\State.cs" />
     <Compile Include="Assets\Scripts\CardSetter.cs" />
+    <Compile Include="Assets\Scripts\GoToTarget.cs" />
     <Compile Include="Assets\Scripts\AbilityDefinition.cs" />
     <Compile Include="Assets\Scripts\SummonManager.cs" />
     <Compile Include="Assets\InputSystem\Input.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\currentState.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\InWeaponRangeAction.cs" />
     <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\GravityControlAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\ThirdStrikeAbility.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\ChaseEnemyAction.cs" />
     <Compile Include="Assets\Scripts\CharacterBehavior.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\GoodEatsAbility.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\CharacterAttackAction.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\LookAtTargetAction.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\IsAgentEnabledAction.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTakeDamageAction.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\CleanseAbility.cs" />
     <Compile Include="Assets\Scripts\SlashDefinition.cs" />
     <Compile Include="Assets\Scripts\AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\SlownessPotionAbility.cs" />
+    <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTargetAction.cs" />
     <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\SlipAwayAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\HeartstopAbility.cs" />
@@ -1148,6 +1159,10 @@
       <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
@@ -1176,12 +1191,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PPv2URPConverters">
@@ -1250,6 +1273,10 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">

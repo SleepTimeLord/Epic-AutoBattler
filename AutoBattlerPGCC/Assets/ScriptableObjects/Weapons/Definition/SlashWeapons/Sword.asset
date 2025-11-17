@@ -19,9 +19,12 @@ MonoBehaviour:
   holdOffset: {x: -1.45, y: -0.021, z: 0}
   scaleOffset: {x: 8, y: 8, z: 8}
   damage: 10
-  attackSpeed: 1
-  range: 2
+  attackSpeed: 0.5
+  range: 1.7
   additionalCost: 1
+  attackSlow: 0.5
+  attackKnockbackDistance: 10
+  attackKnockbackDuration: 1
   attackAnimation: {fileID: 9100000, guid: d9923d11cb0323643b4dec75a653a550, type: 2}
   rightAttackName: SwingRight
   leftAttackName: SwingLeft

@@ -17,7 +17,7 @@ public class CharacterCreate
     public GameObject characterCard;
     public int intelligence;
     public int health;
-    public int speed;
+    public float speed;
     public int strength;
     public int cost;
     public AbilityDefinition[] uniqueAbilities;
