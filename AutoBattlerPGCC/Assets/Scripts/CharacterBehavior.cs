@@ -55,7 +55,6 @@ public class CharacterBehavior : MonoBehaviour
     public float force = 10f;
 
     public bool IsBeingKnockedBack;
-    public float knockbackEndTime;
     public WeaponDefinition attackedWeapon;
 
     // Add this to your CharacterBehavior script
@@ -170,7 +169,6 @@ public class CharacterBehavior : MonoBehaviour
         if (IsBeingKnockedBack) return;
 
         IsBeingKnockedBack = true;
-        knockbackEndTime = Time.time + duration;
 
         StartCoroutine(KnockbackRoutine(direction.normalized, distance, duration));
     }
@@ -207,22 +205,18 @@ public class CharacterBehavior : MonoBehaviour
             rb.AddForce(dir * impulseForce, ForceMode2D.Impulse);
         }
 
-        // --- 2. WAIT FOR KNOCKBACK TO FINISH ---
         float knockbackStartTime = Time.time;
 
         // Wait until velocity is near zero OR the max time is exceeded
         yield return new WaitUntil(() =>
         {
-            // Condition 1: Velocity is almost zero
             bool hasStopped = rb.linearVelocity.magnitude < stillThreshold;
 
-            // Condition 2: Safety timer has run out (prevents infinite knockback stall)
             bool timeExpired = Time.time > knockbackStartTime + maxKnockbackTime;
 
             return hasStopped || timeExpired;
         });
 
-        // --- 3. CRITICAL CLEANUP: Restore Agent Control ---
         if (rb != null)
         {
             // Restore Rigidbody to passive state

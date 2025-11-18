@@ -8,15 +8,18 @@ using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
+// TODO: make enemy container inside the scene so the enemies can acutally spawn too
 public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager Instance { get; private set; }
     public GameObject cardContainer;
+    public GameObject enemyCardContainer;
 
     private Dictionary<string, CharacterCreate> allyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
 
     private Dictionary<string, GameObject> spawnedCharacters = new Dictionary<string, GameObject>();
+    private Dictionary<string, CharacterCreate> deadCharacters = new Dictionary<string, CharacterCreate>();
 
     private void Awake()
     {
@@ -95,6 +98,46 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void KillCharacter(string instanceID, CharacterType characterType) 
+    {
+        if (characterType == CharacterType.Ally)
+        {
+            if (!allyCharacters.ContainsKey(instanceID))
+            {
+                Debug.LogWarning("character does not exist");
+                return;
+            }
+
+            // if character is currently spawned then 
+            if (spawnedCharacters.TryGetValue(instanceID, out GameObject character))
+            {
+                DespawnCharacter(instanceID, characterType);
+            }
+
+            // removes character from instance
+            deadCharacters[instanceID] = GetCharacter(instanceID, characterType);
+            RemoveAllyCharacter(instanceID);
+        }
+        else 
+        {
+            if (!enemyCharacters.ContainsKey(instanceID))
+            {
+                Debug.LogWarning("character does not exist");
+                return;
+            }
+
+            // if character is currently spawned then 
+            if (spawnedCharacters.TryGetValue(instanceID, out GameObject character))
+            {
+                DespawnCharacter(instanceID, characterType);
+            }
+
+            // removes character from instance
+            deadCharacters[instanceID] = GetCharacter(instanceID, characterType);
+            RemoveEnemyCharacter(instanceID);
+        }
+    }
+
     // Method to spawn an ally character from dictionary in the game world
     public void SpawnCharacter(string characterID, Vector3 position, CharacterType characterType)
     {
@@ -145,12 +188,12 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void DespawnCharacter(string characterID)
+    public void DespawnCharacter(string characterID, CharacterType characterType)
     {
         if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
         {
             // update character stats before despawning
-            UpdateAllyCharacterStats(characterID, GetCharacter(characterID), character.GetComponent<CharacterBehavior>());
+            UpdateCharacterStats(characterID, GetCharacter(characterID, characterType), character.GetComponent<CharacterBehavior>(), characterType);
 
             Destroy(character);
             spawnedCharacters.Remove(characterID);
@@ -175,27 +218,55 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.cost = character.cost;
     }
 
-    public void UpdateAllyCharacterStats(string characterID, CharacterCreate character, CharacterBehavior characterBehavior)
+    public void UpdateCharacterStats(string characterID, CharacterCreate character, CharacterBehavior characterBehavior, CharacterType characterType)
     {
-        if (allyCharacters.TryGetValue(characterID, out CharacterCreate allyCharacter))
+        if (characterType == CharacterType.Ally)
         {
-            if (characterBehavior != null)
+            if (allyCharacters.TryGetValue(characterID, out CharacterCreate allyCharacter))
             {
-                // update stats
-                allyCharacter.intelligence = characterBehavior.intelligence;
-                allyCharacter.health = characterBehavior.health;
-                allyCharacter.speed = characterBehavior.speed;
-                allyCharacter.strength = characterBehavior.strength;
-                allyCharacter.cost = characterBehavior.cost;
+                if (characterBehavior != null)
+                {
+                    // update stats
+                    allyCharacter.intelligence = characterBehavior.intelligence;
+                    allyCharacter.health = characterBehavior.health;
+                    allyCharacter.speed = characterBehavior.speed;
+                    allyCharacter.strength = characterBehavior.strength;
+                    allyCharacter.cost = characterBehavior.cost;
+                }
+                else
+                {
+                    Debug.LogError($"UpdateCharacterStats: No CharacterBehavior found on spawned character with instanceID {characterID}");
+                }
             }
             else
             {
-                Debug.LogError($"UpdateCharacterStats: No CharacterBehavior found on spawned character with instanceID {characterID}");
+                Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
+
             }
         }
         else
         {
-            Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
+            if (enemyCharacters.TryGetValue(characterID, out CharacterCreate enemyCharacter))
+            {
+                if (characterBehavior != null)
+                {
+                    // update stats
+                    enemyCharacter.intelligence = characterBehavior.intelligence;
+                    enemyCharacter.health = characterBehavior.health;
+                    enemyCharacter.speed = characterBehavior.speed;
+                    enemyCharacter.strength = characterBehavior.strength;
+                    enemyCharacter.cost = characterBehavior.cost;
+                }
+                else
+                {
+                    Debug.LogError($"UpdateCharacterStats: No CharacterBehavior found on spawned character with instanceID {characterID}");
+                }
+            }
+            else
+            {
+                Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
+
+            }
         }
     }
 
@@ -256,9 +327,9 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.weapon = character.weapon;
     }
 
-    public void UpdateCharacterCard(string instanceID, CardSetter card) 
+    public void UpdateCharacterCard(string instanceID, CardSetter card, CharacterType characterType) 
     { 
-        CharacterCreate character = GetCharacter(instanceID);
+        CharacterCreate character = GetCharacter(instanceID, characterType);
         card.characterDescriptionText.text = character.description;
         card.characterCost.text = character.cost.ToString();
         card.characterHealth.text = character.health.ToString();
@@ -282,8 +353,23 @@ public class CharacterManager : MonoBehaviour
     // instantiate an instance of character card into a container
     private void SpawnCharacterCard(CharacterCreate character) 
     {
-        GameObject card = Instantiate(character.characterCard);
-        card.transform.SetParent(cardContainer.transform, false);
+        CharacterBehavior characterBehavior = character.characterTopdown.GetComponent<CharacterBehavior>();
+        if (characterBehavior == null) 
+        {
+            Debug.LogWarning("No character behavior detected");
+            return;
+        }
+
+        if (characterBehavior.characterType == CharacterType.Ally)
+        {
+            GameObject card = Instantiate(character.characterCard);
+            card.transform.SetParent(cardContainer.transform, false);
+        }
+        else 
+        {
+            GameObject card = Instantiate(character.characterCard);
+            card.transform.SetParent(enemyCardContainer.transform, false);
+        }
     }
 
     // set character card and instantiates an instance of it into a container
@@ -327,14 +413,31 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public CharacterCreate GetCharacter(string InstanceID) {
-        if (allyCharacters.TryGetValue(InstanceID, out CharacterCreate value))
+    public CharacterCreate GetCharacter(string InstanceID, CharacterType characterType) {
+        if (characterType == CharacterType.Ally)
         {
-            return value;
+            if (allyCharacters.TryGetValue(InstanceID, out CharacterCreate value))
+            {
+                return value;
+            }
+            else
+            {
+                Debug.LogError("No character in ally characters that have that instanceID");
+                return null;
+            }
         }
-        else {
-            Debug.LogError("No character in ally characters that have that instanceID");
-            return null;
+        else if (characterType == CharacterType.Enemy)
+        {
+            if (enemyCharacters.TryGetValue(InstanceID, out CharacterCreate value))
+            {
+                return value;
+            }
+            else
+            {
+                Debug.LogError("No character in enemy characters that have that instanceID");
+                return null;
+            }
         }
+        else { return null; }
     }
 }

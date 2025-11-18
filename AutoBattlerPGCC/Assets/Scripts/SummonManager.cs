@@ -38,7 +38,7 @@ public class SummonManager : MonoBehaviour
 
     public void SummonCharacter(string instanceID)
     {
-        CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID);
+        CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID, CharacterType.Ally);
         CardSetter card = character.characterCard.GetComponent<CardSetter>();
         if (currentSummoned == null)
         {
@@ -68,9 +68,9 @@ public class SummonManager : MonoBehaviour
         placeHolderLayout.ignoreLayout = false;
         placeHolder.transform.SetSiblingIndex(lastIndex);
         // despawns physical instance of character
-        CharacterManager.Instance.DespawnCharacter(currentInstanceID);
+        CharacterManager.Instance.DespawnCharacter(currentInstanceID, CharacterType.Ally);
         // updates the CardSetter to new stats
-        CharacterManager.Instance.UpdateCharacterCard(currentInstanceID, currentSummoned.GetComponent<CardSetter>());
+        CharacterManager.Instance.UpdateCharacterCard(currentInstanceID, currentSummoned.GetComponent<CardSetter>(), CharacterType.Ally);
         // goes bakc to the intial position 
         yield return StartCoroutine(LerpToPosition(currentSummoned, placeHolder.transform));
         // after it stops lerping sets placeholder to ignore the layout

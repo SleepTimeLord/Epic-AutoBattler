@@ -22,7 +22,7 @@ public partial class KnockbackCharacterAction : Action
     protected override Status OnUpdate()
     {
         // Check if knockback duration has ended abd set status as success
-        if (Time.time > Character.Value.knockbackEndTime) 
+        if (!Character.Value.tookDamage) 
         {
             Character.Value.IsBeingKnockedBack = false;
             return Status.Success;
