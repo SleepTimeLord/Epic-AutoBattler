@@ -12,9 +12,7 @@ public class SummonManager : MonoBehaviour
     public LayoutElement enemyPlaceHolderLayout;
     public static SummonManager Instance { get; private set; }
 
-    [HideInInspector]
     public bool isPlacingCard = false;
-    [HideInInspector]
     public bool isPlacingEnemyCard = false;
     [Header("Spawn for character and character card")]
     public Transform spawnPosition;
@@ -158,31 +156,45 @@ public class SummonManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DesummonCard(string instanceID, CharacterType characterType) 
+    public IEnumerator DesummonCard(string instanceID, CharacterType characterType)
     {
         if (characterType == CharacterType.Ally)
         {
             lastIndex = cardContainer.transform.childCount;
             placeHolderLayout.ignoreLayout = false;
             placeHolder.transform.SetSiblingIndex(lastIndex);
-            // despawns physical instance of character
-            CharacterManager.Instance.DespawnCharacter(instanceID, characterType);
-            // updates the CardSetter to new stats
+
+            // update card before desummoning
             CharacterManager.Instance.UpdateCharacterCard(instanceID, currentSummoned.GetComponent<CardSetter>(), characterType);
-            // goes bakc to the intial position 
+
+            // lerp back to hand
             yield return StartCoroutine(LerpToPosition(currentSummoned, placeHolder.transform, characterType));
+
+            // reparent the card back to cardContainer after lerp completes
+            placeHolderLayout.ignoreLayout = true;
+            currentSummoned.SetParent(cardContainer.transform, false);
+            currentSummoned.SetSiblingIndex(lastIndex);
+
+            // clear the current summoned reference
+            currentSummoned = null;
+            currentSummonedID = null;
         }
-        else 
+        else
         {
-            enemyLastIndex = cardContainer.transform.childCount;
+            enemyLastIndex = enemyContainer.transform.childCount;
             enemyPlaceHolderLayout.ignoreLayout = false;
             enemyPlaceHolder.transform.SetSiblingIndex(enemyLastIndex);
-            // despawns physical instance of character
-            CharacterManager.Instance.DespawnCharacter(instanceID, characterType);
-            // updates the CardSetter to new stats
+
             CharacterManager.Instance.UpdateCharacterCard(instanceID, currentEnemySummoned.GetComponent<CardSetter>(), characterType);
-            // goes bakc to the intial position 
             yield return StartCoroutine(LerpToPosition(currentEnemySummoned, enemyPlaceHolder.transform, characterType));
+
+            // same for enemy
+            enemyPlaceHolderLayout.ignoreLayout = true;
+            currentEnemySummoned.SetParent(enemyContainer.transform, false);
+            currentEnemySummoned.SetSiblingIndex(enemyLastIndex);
+
+            currentEnemySummoned = null;
+            currentEnemySummonedID = null;
         }
     }
 

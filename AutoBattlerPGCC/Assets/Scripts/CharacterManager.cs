@@ -19,7 +19,7 @@ public class CharacterManager : MonoBehaviour
     private Dictionary<string, CharacterCreate> allyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
 
-    private Dictionary<string, GameObject> spawnedCharacters = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> spawnedCharacters = new Dictionary<string, GameObject>();
 
     private Dictionary<string, CharacterCreate> deadAllyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> deadEnemyCharacters = new Dictionary<string, CharacterCreate>();
@@ -76,14 +76,11 @@ public class CharacterManager : MonoBehaviour
         SpawnCharacterCard(character);
     }
 
-    // Method to get an ally character by instanceID
     public void RemoveAllyCharacter(string instanceID)
     {
-        Debug.Log($"RemoveAllyCharacter CALLED with ID: {instanceID}");
-
         if (!allyCharacters.ContainsKey(instanceID))
         {
-            Debug.LogWarning($"RemoveAllyCharacter: No ally found with instanceID {instanceID}");
+            Debug.LogWarning($"no ally found with instanceID {instanceID}");
             return;
         }
 
@@ -97,7 +94,6 @@ public class CharacterManager : MonoBehaviour
             if (setter != null && setter.instanceID == instanceID)
             {
                 Destroy(card.gameObject);
-                Debug.Log("RemoveAllyCharacter: UI card removed.");
                 break;
             }
         }
@@ -110,60 +106,76 @@ public class CharacterManager : MonoBehaviour
     // Method to get an enemy character by instanceID
     public void RemoveEnemyCharacter(string instanceID)
     {
-        if (enemyCharacters.ContainsKey(instanceID))
+
+        if (!enemyCharacters.ContainsKey(instanceID))
         {
-            CharacterCreate character = enemyCharacters[instanceID];
-            foreach (Transform card in enemyCardContainer.transform)
+            Debug.LogWarning($"no ally found with instanceID {instanceID}");
+            return;
+        }
+
+        CharacterCreate character = enemyCharacters[instanceID];
+
+        // Remove the UI card
+        foreach (Transform card in enemyCardContainer.transform)
+        {
+            CardSetter setter = card.GetComponent<CardSetter>();
+
+
+            if (setter != null && setter.instanceID == instanceID)
             {
-                if (card.GetComponent<CardSetter>().instanceID == instanceID)
-                {
-                    Destroy(card.gameObject); break;
-                }
+                Destroy(card.gameObject);
+                break;
             }
-            enemyCharacters.Remove(instanceID);
         }
-        else
-        {
-            Debug.LogWarning($"RemoveEnemyCharacter: No enemy character found with instanceID {instanceID}");
-        }
+
+        // Remove from dictionary
+        enemyCharacters.Remove(instanceID);
+    }
+
+    // a wrapper to start the coroutine from CharacterManager because we gonna destroy CharacterBehavior 
+    // which stops the script midway because its destroyed
+    public void StartKillCharacterCoroutine(string instanceID, CharacterType characterType)
+    {
+        StartCoroutine(KillCharacter(instanceID, characterType));
     }
 
     public IEnumerator KillCharacter(string instanceID, CharacterType characterType)
     {
-        Debug.Log("this was called");
+
         if (characterType == CharacterType.Ally)
         {
-            // Early exit if ally does not exist
             if (!allyCharacters.ContainsKey(instanceID))
             {
-                Debug.LogWarning($"KillCharacter: No ally found with ID {instanceID}");
+                Debug.LogWarning($"no ally found with ID {instanceID}");
                 yield break;
             }
 
-            // If the character is currently spawned, desummon it first
             if (spawnedCharacters.ContainsKey(instanceID))
             {
-                yield return SummonManager.Instance.DesummonCard(instanceID, characterType);
+                // destory character gameobject
+                DespawnCharacter(instanceID, characterType);
+
+                // desummons card
+                yield return StartCoroutine(SummonManager.Instance.DesummonCard(instanceID, characterType));
             }
 
-            // Move character to dead pool
+            // after desummon then fully kill instance of character and move to deadAllyCharacter
             deadAllyCharacters[instanceID] = GetCharacter(instanceID, characterType);
 
-            // Remove from ally list and destroy UI card
             RemoveAllyCharacter(instanceID);
         }
-        else // ENEMY branch
+        else
         {
             if (!enemyCharacters.ContainsKey(instanceID))
             {
-                Debug.LogWarning($"KillCharacter: No enemy found with ID {instanceID}");
+                Debug.LogWarning($"no enemy found with ID {instanceID}");
                 yield break;
             }
 
-            // Desummon if currently spawned
-            if (spawnedCharacters.TryGetValue(instanceID, out GameObject character))
+            if (spawnedCharacters.ContainsKey(instanceID))
             {
-                yield return SummonManager.Instance.DesummonCard(instanceID, characterType);
+                DespawnCharacter(instanceID, characterType);
+                yield return StartCoroutine(SummonManager.Instance.DesummonCard(instanceID, characterType));
             }
 
             deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
@@ -171,18 +183,52 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void HideCharacter(string characterID)
+    // to respawn characters theoretically idk if work
+    public void RespawnCharacter(string instanceID, CharacterType characterType) 
     {
-        if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
+        if (characterType == CharacterType.Ally)
         {
-            // Just hide it so the player thinks it's gone
-            if (character != null)
-                character.SetActive(false);
+            if (deadAllyCharacters.TryGetValue(instanceID, out CharacterCreate character))
+            {
+                // reset to base
+                SetCharacterBaseStats(character, character.characterDefinition);
+                // update card
+                UpdateCharacterCard(instanceID, character.characterCard.GetComponent<CardSetter>(), characterType);
+                // bring card to board
+                SpawnCharacterCard(character);
+            }
+            else
+            {
+                Debug.LogWarning("cant find dead ally");
+            }
+        }
+        else 
+        {
+            if (deadEnemyCharacters.TryGetValue(instanceID, out CharacterCreate character))
+            {
+                // reset to base
+                SetCharacterBaseStats(character, character.characterDefinition);
+                // update card
+                UpdateCharacterCard(instanceID, character.characterCard.GetComponent<CardSetter>(), characterType);
+                // bring card to board
+                SpawnCharacterCard(character);
+            }
+            else
+            {
+                Debug.LogWarning("cant find dead enemy");
+            }
         }
     }
 
+    public void SetCharacterBaseStats(CharacterCreate character, CharacterDefinition characterBase) 
+    { 
+        character.health = characterBase.health;
+        character.intelligence = characterBase.intelligence;
+        character.speed = characterBase.speed;
+        character.strength = characterBase.strength;
+    }
 
-    // Method to spawn an ally character from dictionary in the game world
+    // to spawn an ally character from dictionary in the game world
     public void SpawnCharacter(string characterID, Vector3 position, CharacterType characterType)
     {
         // find the character in the allyCharacters dictionary
@@ -232,7 +278,6 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    // make this a courtine
     public void DespawnCharacter(string characterID, CharacterType characterType)
     {
         if (spawnedCharacters.TryGetValue(characterID, out GameObject character))

@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: -1720776901190809364}
   m_Layer: 0
   m_Name: Teo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,14 +244,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe782ace561a3c4280fb8cc26b95ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
-  testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   agent: {fileID: 0}
   blackboardAgent: {fileID: 0}
   rb: {fileID: 0}
   intialHealth: 0
   characterName: Teo
   characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  instanceID: eb44a549-6926-4399-8d16-e7eb0148f4a8
+  instanceID: 4a32b526-4372-457c-8b71-aad7da42a2c0
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
@@ -264,7 +263,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
   - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
   activeAbility: []
-  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}

@@ -360,12 +360,12 @@ MonoBehaviour:
   intialHealth: 0
   characterName: Lilith
   characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
-  instanceID: aecd2e3b-c214-4cac-a669-0132ba00fbda
+  instanceID: bc571b80-3a3c-49f4-941e-4fd405780b95
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
   characterType: 0
   intelligence: 30
-  health: 14
+  health: 40
   speed: 100
   strength: 30
   cost: 7

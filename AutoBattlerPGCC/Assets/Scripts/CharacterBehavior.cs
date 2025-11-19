@@ -142,16 +142,17 @@ public class CharacterBehavior : MonoBehaviour
         return (int)(weapon.damage + (strength * 0.1f));
     }
 
-    public void TakeDamage(int damageAmount, WeaponDefinition weapon, Vector3 attackPos) 
+    public void TakeDamage(int damageAmount, WeaponDefinition weapon, Vector3 attackPos)
     {
         attackedWeapon = weapon;
         tookDamage = true;
         health -= damageAmount;
 
-
-        if (health <= 0) 
+        if (health <= 0)
         {
-            StartCoroutine(CharacterManager.Instance.KillCharacter(instanceID, characterType));
+            // DON'T start the coroutine from this GameObject - it's about to be destroyed!
+            // Instead, let CharacterManager handle it
+            CharacterManager.Instance.StartKillCharacterCoroutine(instanceID, characterType);
         }
     }
 
