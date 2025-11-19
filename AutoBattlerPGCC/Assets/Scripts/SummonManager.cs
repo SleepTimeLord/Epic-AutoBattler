@@ -1,23 +1,37 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class SummonManager : MonoBehaviour
 {
     public GameObject placeHolder;
     public LayoutElement placeHolderLayout;
+
+    public GameObject enemyPlaceHolder;
+    public LayoutElement enemyPlaceHolderLayout;
     public static SummonManager Instance { get; private set; }
 
     [HideInInspector]
     public bool isPlacingCard = false;
+    [HideInInspector]
+    public bool isPlacingEnemyCard = false;
     [Header("Spawn for character and character card")]
     public Transform spawnPosition;
+    public Transform enemyPosition;
     [Header("Card Container")]
     public GameObject cardContainer;
+    public GameObject enemyContainer;
     public Canvas canvas;
 
     private RectTransform currentSummoned;
     private string currentSummonedID;
+
+    private RectTransform currentEnemySummoned;
+    private string currentEnemySummonedID;
+
+    private int lastIndex;
+    private int enemyLastIndex;
 
     [Header("Lerp Handler")]
     public float lerpSpeed;
@@ -32,11 +46,38 @@ public class SummonManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
     }
 
-    public void SummonCharacter(string instanceID)
+    // gets card from deck
+    public CardSetter GetCardFromDeck(int placement, CharacterType characterType) 
+    {
+        if (characterType == CharacterType.Ally)
+        {
+            CardSetter card = cardContainer.transform.GetChild(placement).GetComponent<CardSetter>();
+            if (card == null)
+            {
+                Debug.LogWarning("Card not not found");
+                return null;
+            }
+            return card;
+        }
+        else 
+        {
+            CardSetter card = enemyContainer.transform.GetChild(placement).GetComponent<CardSetter>();
+            if (card == null)
+            {
+                Debug.LogWarning("Card not not found");
+                return null;
+            }
+            return card;
+        }
+    }
+
+    // spawns character from hand to board
+    public IEnumerator SummonCharacter(string instanceID)
     {
         CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID, CharacterType.Ally);
         CardSetter card = character.characterCard.GetComponent<CardSetter>();
@@ -45,7 +86,8 @@ public class SummonManager : MonoBehaviour
             if (card != null) 
             {
                 SetCurrentSummon(instanceID);
-                StartCoroutine(LerpToPosition(currentSummoned, spawnPosition));
+                // wait for character to spawn then lerp
+                yield return StartCoroutine(LerpToPosition(currentSummoned, spawnPosition, CharacterType.Ally));
                 CharacterManager.Instance.SpawnCharacter(instanceID, spawnPosition.position, CharacterType.Ally);
             }
             else 
@@ -56,34 +98,93 @@ public class SummonManager : MonoBehaviour
         }
         else 
         {
-            //DesummonCharacter(currentSummonedID);
+            Debug.Log("summoning now");
             // finishes desummoning character before setingcurrentsummon
-            StartCoroutine(SummonNewCard(currentSummonedID, instanceID));
+            StartCoroutine(SummonNewCard(currentSummonedID, instanceID, CharacterType.Ally));
         }
     }
 
-    private IEnumerator SummonNewCard(string currentInstanceID, string newInstanceID) 
+    public IEnumerator SummonEnemyCharacter(string instanceID) 
     {
-        int lastIndex = cardContainer.transform.childCount;
-        placeHolderLayout.ignoreLayout = false;
-        placeHolder.transform.SetSiblingIndex(lastIndex);
-        // despawns physical instance of character
-        CharacterManager.Instance.DespawnCharacter(currentInstanceID, CharacterType.Ally);
-        // updates the CardSetter to new stats
-        CharacterManager.Instance.UpdateCharacterCard(currentInstanceID, currentSummoned.GetComponent<CardSetter>(), CharacterType.Ally);
-        // goes bakc to the intial position 
-        yield return StartCoroutine(LerpToPosition(currentSummoned, placeHolder.transform));
-        // after it stops lerping sets placeholder to ignore the layout
-        placeHolderLayout.ignoreLayout = true;
-        // sets the card going back to hand to cardcontainer in the same spot
-        currentSummoned.SetParent(cardContainer.transform, false);
-        currentSummoned.SetSiblingIndex(lastIndex);
-        SetCurrentSummon(newInstanceID);
-
-        StartCoroutine(LerpToPosition(currentSummoned, spawnPosition));
-        CharacterManager.Instance.SpawnCharacter(newInstanceID, spawnPosition.position, CharacterType.Ally);
+        CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID, CharacterType.Enemy);
+        CardSetter card = character.characterCard.GetComponent<CardSetter>();
+        if (currentEnemySummoned == null)
+        {
+            if (card != null)
+            {
+                SetCurrentEnemySummon(instanceID);
+                yield return StartCoroutine(LerpToPosition(currentEnemySummoned, enemyPosition, CharacterType.Enemy));
+                CharacterManager.Instance.SpawnCharacter(instanceID, enemyPosition.position, CharacterType.Enemy);
+            }
+            else
+            {
+                Debug.Log("cant find card");
+            }
+        }
+        else 
+        {
+            SummonNewCard(currentEnemySummonedID, instanceID, CharacterType.Enemy);
+        }
     }
 
+    // make a card back to deck method to break this up
+    private IEnumerator SummonNewCard(string currentInstanceID, string newInstanceID, CharacterType characterType) 
+    {
+        // waits to desummon card
+        yield return StartCoroutine(DesummonCard(currentInstanceID, characterType));
+        if (characterType == CharacterType.Ally)
+        {
+            // after it stops lerping sets placeholder to ignore the layout
+            placeHolderLayout.ignoreLayout = true;
+            // sets the card going back to hand to cardcontainer in the same spot
+            currentSummoned.SetParent(cardContainer.transform, false);
+            currentSummoned.SetSiblingIndex(lastIndex);
+            SetCurrentSummon(newInstanceID);
+
+            StartCoroutine(LerpToPosition(currentSummoned, spawnPosition, characterType));
+            CharacterManager.Instance.SpawnCharacter(newInstanceID, spawnPosition.position, characterType);
+        }
+        else 
+        {
+            // after it stops lerping sets placeholder to ignore the layout
+            enemyPlaceHolderLayout.ignoreLayout = true;
+            // sets the card going back to hand to cardcontainer in the same spot
+            currentEnemySummoned.SetParent(enemyContainer.transform, false);
+            currentEnemySummoned.SetSiblingIndex(enemyLastIndex);
+            SetCurrentEnemySummon(newInstanceID);
+
+            StartCoroutine(LerpToPosition(currentEnemySummoned, enemyPosition, characterType));
+            CharacterManager.Instance.SpawnCharacter(newInstanceID, enemyPosition.position, characterType);
+        }
+    }
+
+    public IEnumerator DesummonCard(string instanceID, CharacterType characterType) 
+    {
+        if (characterType == CharacterType.Ally)
+        {
+            lastIndex = cardContainer.transform.childCount;
+            placeHolderLayout.ignoreLayout = false;
+            placeHolder.transform.SetSiblingIndex(lastIndex);
+            // despawns physical instance of character
+            CharacterManager.Instance.DespawnCharacter(instanceID, characterType);
+            // updates the CardSetter to new stats
+            CharacterManager.Instance.UpdateCharacterCard(instanceID, currentSummoned.GetComponent<CardSetter>(), characterType);
+            // goes bakc to the intial position 
+            yield return StartCoroutine(LerpToPosition(currentSummoned, placeHolder.transform, characterType));
+        }
+        else 
+        {
+            enemyLastIndex = cardContainer.transform.childCount;
+            enemyPlaceHolderLayout.ignoreLayout = false;
+            enemyPlaceHolder.transform.SetSiblingIndex(enemyLastIndex);
+            // despawns physical instance of character
+            CharacterManager.Instance.DespawnCharacter(instanceID, characterType);
+            // updates the CardSetter to new stats
+            CharacterManager.Instance.UpdateCharacterCard(instanceID, currentEnemySummoned.GetComponent<CardSetter>(), characterType);
+            // goes bakc to the intial position 
+            yield return StartCoroutine(LerpToPosition(currentEnemySummoned, enemyPlaceHolder.transform, characterType));
+        }
+    }
 
     private void SetCurrentSummon(string instanceID)
     {
@@ -100,7 +201,6 @@ public class SummonManager : MonoBehaviour
 
             if (cardInfo.instanceID == instanceID)
             {
-                // store BEFORE re-parenting
                 currentSummoned = card;
                 currentSummonedID = cardInfo.instanceID;
 
@@ -110,8 +210,30 @@ public class SummonManager : MonoBehaviour
         }
     }
 
+    private void SetCurrentEnemySummon(string instanceID) 
+    {
+        if (enemyContainer.transform.childCount == 0) { Debug.Log("No children"); return; }
+
+        foreach (RectTransform card in enemyContainer.transform) 
+        {
+            CardSetter cardInfo = card.GetComponent<CardSetter>();
+            if (cardInfo == null) 
+            {
+                continue;
+            }
+            if (cardInfo.instanceID == instanceID) 
+            { 
+                currentEnemySummoned = card;
+                currentEnemySummonedID = cardInfo.instanceID;
+
+                currentEnemySummoned.SetParent(canvas.transform);
+                break;
+            }
+        }
+    }
+
     // lerps to board
-    private IEnumerator LerpToPosition(Transform target, Transform targetPosition)
+    private IEnumerator LerpToPosition(Transform target, Transform targetPosition, CharacterType characterType)
     {
         if (target == null || targetPosition == null)
         {
@@ -127,23 +249,46 @@ public class SummonManager : MonoBehaviour
         Quaternion targetRot = targetPosition.rotation;
         Vector3 targetScale = targetPosition.localScale;
 
-        float t = 0f;
-        while (t < 1f)
+        if (characterType == CharacterType.Ally)
         {
-            isPlacingCard = true;
-            t += Time.deltaTime * lerpSpeed;
+            float t = 0f;
+            while (t < 1f)
+            {
+                isPlacingCard = true;
+                t += Time.deltaTime * lerpSpeed;
 
-            target.position = Vector3.Lerp(startPos, targetPos, t);
-            target.rotation = Quaternion.Lerp(startRot, targetRot, t);
-            target.localScale = Vector3.Lerp(startScale, targetScale, t);
+                target.position = Vector3.Lerp(startPos, targetPos, t);
+                target.rotation = Quaternion.Lerp(startRot, targetRot, t);
+                target.localScale = Vector3.Lerp(startScale, targetScale, t);
 
-            yield return null;
+                yield return null;
+            }
+
+            target.position = targetPos;
+            target.rotation = targetRot;
+            target.localScale = targetScale;
+            isPlacingCard = false;
         }
+        else 
+        {
+            float t = 0f;
+            while (t < 1f)
+            {
+                isPlacingEnemyCard = true;
+                t += Time.deltaTime * lerpSpeed;
 
-        target.position = targetPos;
-        target.rotation = targetRot;
-        target.localScale = targetScale;
-        isPlacingCard = false;
+                target.position = Vector3.Lerp(startPos, targetPos, t);
+                target.rotation = Quaternion.Lerp(startRot, targetRot, t);
+                target.localScale = Vector3.Lerp(startScale, targetScale, t);
+
+                yield return null;
+            }
+
+            target.position = targetPos;
+            target.rotation = targetRot;
+            target.localScale = targetScale;
+            isPlacingEnemyCard = false;
+        }
     }
 
     public bool IsCardOnBoard(CardSetter card)

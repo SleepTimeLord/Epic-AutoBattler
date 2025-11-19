@@ -20,7 +20,7 @@ MonoBehaviour:
   scaleOffset: {x: 8, y: 8, z: 8}
   damage: 10
   attackSpeed: 0.3
-  range: 1.6
+  range: 1.4
   additionalCost: 1
   attackSlow: 0.5
   attackKnockbackDistance: 20

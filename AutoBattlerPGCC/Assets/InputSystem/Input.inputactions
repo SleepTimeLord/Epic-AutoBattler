@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TestAttack",
+                    "name": "CreateEnemy",
                     "type": "Button",
                     "id": "1ecaeb34-d080-4902-a7ed-a7c746246da1",
                     "expectedControlType": "",
@@ -64,7 +64,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TestAttack",
+                    "action": "CreateEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

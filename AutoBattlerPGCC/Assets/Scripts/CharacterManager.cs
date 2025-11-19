@@ -1,4 +1,5 @@
 using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -19,7 +20,9 @@ public class CharacterManager : MonoBehaviour
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
 
     private Dictionary<string, GameObject> spawnedCharacters = new Dictionary<string, GameObject>();
-    private Dictionary<string, CharacterCreate> deadCharacters = new Dictionary<string, CharacterCreate>();
+
+    private Dictionary<string, CharacterCreate> deadAllyCharacters = new Dictionary<string, CharacterCreate>();
+    private Dictionary<string, CharacterCreate> deadEnemyCharacters = new Dictionary<string, CharacterCreate>();
 
     private void Awake()
     {
@@ -31,6 +34,7 @@ public class CharacterManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
@@ -46,6 +50,9 @@ public class CharacterManager : MonoBehaviour
         }
 
         allyCharacters[character.instanceID] = character;
+        CharacterBehavior cb = character.characterTopdown.GetComponent<CharacterBehavior>();
+        cb.characterType = CharacterType.Ally;
+        cb.gameObject.tag = "Ally";
         SetCharacterCost(character);
         SetCharacterCard(character);
         SpawnCharacterCard(character);
@@ -61,35 +68,58 @@ public class CharacterManager : MonoBehaviour
             return;
         }
         enemyCharacters[character.instanceID] = character;
+        CharacterBehavior cb = character.characterTopdown.GetComponent<CharacterBehavior>();
+        cb.characterType = CharacterType.Enemy;
+        cb.gameObject.tag = "Enemy";
         SetCharacterCost(character);
+        SetCharacterCard(character);
+        SpawnCharacterCard(character);
     }
 
     // Method to get an ally character by instanceID
     public void RemoveAllyCharacter(string instanceID)
     {
-        if (allyCharacters.ContainsKey(instanceID))
+        Debug.Log($"RemoveAllyCharacter CALLED with ID: {instanceID}");
+
+        if (!allyCharacters.ContainsKey(instanceID))
         {
-            CharacterCreate character = allyCharacters[instanceID];
-            foreach(Transform card in cardContainer.transform)
+            Debug.LogWarning($"RemoveAllyCharacter: No ally found with instanceID {instanceID}");
+            return;
+        }
+
+        CharacterCreate character = allyCharacters[instanceID];
+
+        // Remove the UI card
+        foreach (Transform card in cardContainer.transform)
+        {
+            CardSetter setter = card.GetComponent<CardSetter>();
+
+            if (setter != null && setter.instanceID == instanceID)
             {
-                if(card.GetComponent<CardSetter>().instanceID == instanceID)
-                {
-                    Destroy(card.gameObject); break;
-                }
+                Destroy(card.gameObject);
+                Debug.Log("RemoveAllyCharacter: UI card removed.");
+                break;
             }
-            allyCharacters.Remove(instanceID);
         }
-        else
-        {
-            Debug.LogWarning($"RemoveAllyCharacter: No ally character found with instanceID {instanceID}");
-        }
+
+        // Remove from dictionary
+        allyCharacters.Remove(instanceID);
     }
+
 
     // Method to get an enemy character by instanceID
     public void RemoveEnemyCharacter(string instanceID)
     {
         if (enemyCharacters.ContainsKey(instanceID))
         {
+            CharacterCreate character = enemyCharacters[instanceID];
+            foreach (Transform card in enemyCardContainer.transform)
+            {
+                if (card.GetComponent<CardSetter>().instanceID == instanceID)
+                {
+                    Destroy(card.gameObject); break;
+                }
+            }
             enemyCharacters.Remove(instanceID);
         }
         else
@@ -98,45 +128,59 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void KillCharacter(string instanceID, CharacterType characterType) 
+    public IEnumerator KillCharacter(string instanceID, CharacterType characterType)
     {
+        Debug.Log("this was called");
         if (characterType == CharacterType.Ally)
         {
+            // Early exit if ally does not exist
             if (!allyCharacters.ContainsKey(instanceID))
             {
-                Debug.LogWarning("character does not exist");
-                return;
+                Debug.LogWarning($"KillCharacter: No ally found with ID {instanceID}");
+                yield break;
             }
 
-            // if character is currently spawned then 
-            if (spawnedCharacters.TryGetValue(instanceID, out GameObject character))
+            // If the character is currently spawned, desummon it first
+            if (spawnedCharacters.ContainsKey(instanceID))
             {
-                DespawnCharacter(instanceID, characterType);
+                yield return SummonManager.Instance.DesummonCard(instanceID, characterType);
             }
 
-            // removes character from instance
-            deadCharacters[instanceID] = GetCharacter(instanceID, characterType);
+            // Move character to dead pool
+            deadAllyCharacters[instanceID] = GetCharacter(instanceID, characterType);
+
+            // Remove from ally list and destroy UI card
             RemoveAllyCharacter(instanceID);
         }
-        else 
+        else // ENEMY branch
         {
             if (!enemyCharacters.ContainsKey(instanceID))
             {
-                Debug.LogWarning("character does not exist");
-                return;
+                Debug.LogWarning($"KillCharacter: No enemy found with ID {instanceID}");
+                yield break;
             }
 
-            // if character is currently spawned then 
+            // Desummon if currently spawned
             if (spawnedCharacters.TryGetValue(instanceID, out GameObject character))
             {
-                DespawnCharacter(instanceID, characterType);
+                yield return SummonManager.Instance.DesummonCard(instanceID, characterType);
             }
 
-            // removes character from instance
-            deadCharacters[instanceID] = GetCharacter(instanceID, characterType);
+            deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveEnemyCharacter(instanceID);
         }
     }
+
+    public void HideCharacter(string characterID)
+    {
+        if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
+        {
+            // Just hide it so the player thinks it's gone
+            if (character != null)
+                character.SetActive(false);
+        }
+    }
+
 
     // Method to spawn an ally character from dictionary in the game world
     public void SpawnCharacter(string characterID, Vector3 position, CharacterType characterType)
@@ -188,17 +232,22 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    // make this a courtine
     public void DespawnCharacter(string characterID, CharacterType characterType)
     {
         if (spawnedCharacters.TryGetValue(characterID, out GameObject character))
         {
-            // update character stats before despawning
+            // update stats one last time
             UpdateCharacterStats(characterID, GetCharacter(characterID, characterType), character.GetComponent<CharacterBehavior>(), characterType);
-
+            // destroy the physical object
             Destroy(character);
+            // remove from dictionary
             spawnedCharacters.Remove(characterID);
         }
-
+        else
+        {
+            Debug.Log("Cant find the character to despawn");
+        }
     }
 
     // Sets character stats and cost

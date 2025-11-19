@@ -313,9 +313,12 @@ GameObject:
   - component: {fileID: 6921997174904686999}
   - component: {fileID: 7341832557853393891}
   - component: {fileID: 5031061914438003132}
+  - component: {fileID: 8352106213477379862}
+  - component: {fileID: 7147302918018981945}
+  - component: {fileID: 8997874677933887882}
   m_Layer: 0
   m_Name: Lilith
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,8 +332,8 @@ Transform:
   m_GameObject: {fileID: 6008052734616835099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -2.99, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4951846636964898934}
@@ -351,15 +354,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe782ace561a3c4280fb8cc26b95ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
-  testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
+  agent: {fileID: 0}
+  blackboardAgent: {fileID: 0}
+  rb: {fileID: 0}
   intialHealth: 0
   characterName: Lilith
-  instanceID: d9282869-186b-4673-b81c-fd4d3bae14bf
+  characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
+  instanceID: aecd2e3b-c214-4cac-a669-0132ba00fbda
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
   characterType: 0
   intelligence: 30
-  health: 40
+  health: 14
   speed: 100
   strength: 30
   cost: 7
@@ -368,10 +374,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
   activeAbility:
   - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
-  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
+  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
+  force: 10
+  IsBeingKnockedBack: 0
+  attackedWeapon: {fileID: 0}
+  stillThreshold: 0.05
+  maxKnockbackTime: 0.5
+  forceMultiplierSet: 20
+  tookDamage: 0
 --- !u!58 &7341832557853393891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -435,6 +448,88 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!195 &8352106213477379862
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008052734616835099}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7147302918018981945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008052734616835099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c8627a1e6b4f64389af0d2b6dd5b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoToTarget
+  weaponRange: 1
+--- !u!114 &8997874677933887882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008052734616835099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: 7958335984974263062, guid: b5369442e1fb9884e9ebd11d00eaf034, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 7871668005674943062
+  - rid: 7871668005674943063
+  - rid: 7871668005674943064
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7871668005674943062
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 6008052734616835099}
+    - rid: 7871668005674943063
+      type: {class: 'BlackboardVariable`1[[CharacterBehavior, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5632147671864269827
+          m_Value1: 7800933403480058372
+        Name: Character
+        m_Value: {fileID: 6921997174904686999}
+    - rid: 7871668005674943064
+      type: {class: 'BlackboardVariable`1[[GoToTarget, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3999764102569969648
+          m_Value1: 8600491784028432797
+        Name: ChaseTarget
+        m_Value: {fileID: 7147302918018981945}
 --- !u!1 &6279548556831614123
 GameObject:
   m_ObjectHideFlags: 0

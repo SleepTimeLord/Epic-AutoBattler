@@ -111,7 +111,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""TestAttack"",
+                    ""name"": ""CreateEnemy"",
                     ""type"": ""Button"",
                     ""id"": ""1ecaeb34-d080-4902-a7ed-a7c746246da1"",
                     ""expectedControlType"": """",
@@ -150,7 +150,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TestAttack"",
+                    ""action"": ""CreateEnemy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -163,7 +163,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_TestInputs = asset.FindActionMap("TestInputs", throwIfNotFound: true);
         m_TestInputs_Create = m_TestInputs.FindAction("Create", throwIfNotFound: true);
         m_TestInputs_Spawn = m_TestInputs.FindAction("Spawn", throwIfNotFound: true);
-        m_TestInputs_TestAttack = m_TestInputs.FindAction("TestAttack", throwIfNotFound: true);
+        m_TestInputs_CreateEnemy = m_TestInputs.FindAction("CreateEnemy", throwIfNotFound: true);
     }
 
     ~@Input()
@@ -246,7 +246,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private List<ITestInputsActions> m_TestInputsActionsCallbackInterfaces = new List<ITestInputsActions>();
     private readonly InputAction m_TestInputs_Create;
     private readonly InputAction m_TestInputs_Spawn;
-    private readonly InputAction m_TestInputs_TestAttack;
+    private readonly InputAction m_TestInputs_CreateEnemy;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestInputs".
     /// </summary>
@@ -267,9 +267,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Spawn => m_Wrapper.m_TestInputs_Spawn;
         /// <summary>
-        /// Provides access to the underlying input action "TestInputs/TestAttack".
+        /// Provides access to the underlying input action "TestInputs/CreateEnemy".
         /// </summary>
-        public InputAction @TestAttack => m_Wrapper.m_TestInputs_TestAttack;
+        public InputAction @CreateEnemy => m_Wrapper.m_TestInputs_CreateEnemy;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -302,9 +302,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Spawn.started += instance.OnSpawn;
             @Spawn.performed += instance.OnSpawn;
             @Spawn.canceled += instance.OnSpawn;
-            @TestAttack.started += instance.OnTestAttack;
-            @TestAttack.performed += instance.OnTestAttack;
-            @TestAttack.canceled += instance.OnTestAttack;
+            @CreateEnemy.started += instance.OnCreateEnemy;
+            @CreateEnemy.performed += instance.OnCreateEnemy;
+            @CreateEnemy.canceled += instance.OnCreateEnemy;
         }
 
         /// <summary>
@@ -322,9 +322,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Spawn.started -= instance.OnSpawn;
             @Spawn.performed -= instance.OnSpawn;
             @Spawn.canceled -= instance.OnSpawn;
-            @TestAttack.started -= instance.OnTestAttack;
-            @TestAttack.performed -= instance.OnTestAttack;
-            @TestAttack.canceled -= instance.OnTestAttack;
+            @CreateEnemy.started -= instance.OnCreateEnemy;
+            @CreateEnemy.performed -= instance.OnCreateEnemy;
+            @CreateEnemy.canceled -= instance.OnCreateEnemy;
         }
 
         /// <summary>
@@ -380,11 +380,11 @@ public partial class @Input: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpawn(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "TestAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "CreateEnemy" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTestAttack(InputAction.CallbackContext context);
+        void OnCreateEnemy(InputAction.CallbackContext context);
     }
 }

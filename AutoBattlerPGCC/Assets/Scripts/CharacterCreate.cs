@@ -25,7 +25,7 @@ public class CharacterCreate
     public WeaponDefinition weapon;
 
     // Factory method to create CharacterCreate from CharacterDefinition, WeaponDefinition, and PassiveDefinition array
-    public static CharacterCreate CreateFromDefinition(CharacterDefinition charDef, WeaponDefinition weaponDef, AbilityDefinition[] abilitiesDef)
+    public static CharacterCreate CreateFromDefinition(CharacterDefinition charDef, WeaponDefinition weaponDef, AbilityDefinition[] abilitiesDef, CharacterType characterType)
     {
         if (charDef == null)
         {
@@ -67,7 +67,14 @@ public class CharacterCreate
 
         if (CharacterManager.Instance != null)
         {
-            CharacterManager.Instance.AddAllyCharacter(character);
+            if (characterType == CharacterType.Ally)
+            {
+                CharacterManager.Instance.AddAllyCharacter(character);
+            }
+            else 
+            { 
+                CharacterManager.Instance.AddEnemyCharacter(character);
+            }
         }
         else
         {

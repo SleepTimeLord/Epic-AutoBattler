@@ -203,6 +203,8 @@ GameObject:
   - component: {fileID: 400379274957000270}
   - component: {fileID: 7720751569290674125}
   - component: {fileID: 3729757510297932507}
+  - component: {fileID: 6288565168671806550}
+  - component: {fileID: 6347539955934615016}
   - component: {fileID: -1720776901190809364}
   m_Layer: 0
   m_Name: Teo
@@ -220,8 +222,8 @@ Transform:
   m_GameObject: {fileID: 2500055822379302310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4798985, y: 0.18106915, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2807832181129333008}
@@ -243,9 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   testAttack: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
+  agent: {fileID: 0}
+  blackboardAgent: {fileID: 0}
+  rb: {fileID: 0}
   intialHealth: 0
   characterName: Teo
-  instanceID: f5f17658-dcf0-4496-9d23-d16820ac57a5
+  characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
+  instanceID: eb44a549-6926-4399-8d16-e7eb0148f4a8
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
@@ -262,6 +268,13 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
+  force: 10
+  IsBeingKnockedBack: 0
+  attackedWeapon: {fileID: 0}
+  stillThreshold: 0.05
+  maxKnockbackTime: 0.5
+  forceMultiplierSet: 20
+  tookDamage: 0
 --- !u!50 &7720751569290674125
 Rigidbody2D:
   serializedVersion: 5
@@ -325,6 +338,41 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!195 &6288565168671806550
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500055822379302310}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6347539955934615016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500055822379302310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c8627a1e6b4f64389af0d2b6dd5b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoToTarget
+  weaponRange: 0
 --- !u!114 &-1720776901190809364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,13 +386,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
   m_Graph: {fileID: 7958335984974263062, guid: b5369442e1fb9884e9ebd11d00eaf034, type: 2}
-  m_BlackboardVariableOverridesList: []
+  m_BlackboardVariableOverridesList:
+  - rid: 7871668051117342790
+  - rid: 7871668051117342791
+  - rid: 7871668051117342792
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7871668051117342790
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 2500055822379302310}
+    - rid: 7871668051117342791
+      type: {class: 'BlackboardVariable`1[[CharacterBehavior, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5632147671864269827
+          m_Value1: 7800933403480058372
+        Name: Character
+        m_Value: {fileID: 400379274957000270}
+    - rid: 7871668051117342792
+      type: {class: 'BlackboardVariable`1[[GoToTarget, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3999764102569969648
+          m_Value1: 8600491784028432797
+        Name: ChaseTarget
+        m_Value: {fileID: 6347539955934615016}
 --- !u!1 &3913916549420035205
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class CreateAndSpawn : MonoBehaviour
 {
     [SerializeField]
-    private InputActionReference createAction, spawnAction;
+    private InputActionReference createAction, spawnAction, createEnemyAction;
     [Header("For Character Creation")]
     public CharacterDefinition characterDefinition;
     public WeaponDefinition weaponDefinition;
@@ -16,13 +16,15 @@ public class CreateAndSpawn : MonoBehaviour
     private void OnEnable()
     {
         createAction.action.performed += CreateCharacter;
-        spawnAction.action.performed += SpawnCharacter;
+        spawnAction.action.performed += SpawnEnemyCharacter;
+        createEnemyAction.action.performed += CreateEnemyCharacter;
     }
 
     private void OnDisable()
     {
         createAction.action.performed -= CreateCharacter;
-        spawnAction.action.performed -= SpawnCharacter;
+        spawnAction.action.performed -= SpawnEnemyCharacter;
+        createEnemyAction.action.performed -= CreateEnemyCharacter;
     }
 
     // Update is called once per frame
@@ -33,12 +35,27 @@ public class CreateAndSpawn : MonoBehaviour
 
     private void CreateCharacter(InputAction.CallbackContext context)
     {
-        CharacterCreate character = CharacterCreate.CreateFromDefinition(characterDefinition, weaponDefinition, abilityDefinition);
+        CharacterCreate character = CharacterCreate.CreateFromDefinition(characterDefinition, weaponDefinition, abilityDefinition, CharacterType.Ally);
         characterInstanceID = character.instanceID;
         print("Created character: " + character.characterName + character.instanceID);
     }
-    private void SpawnCharacter(InputAction.CallbackContext context)
+    private void CreateEnemyCharacter(InputAction.CallbackContext context) 
     {
-        CharacterManager.Instance.SpawnCharacter(characterInstanceID, characterSpawn.position, CharacterType.Ally);
+        CharacterCreate character = CharacterCreate.CreateFromDefinition(characterDefinition, weaponDefinition, abilityDefinition, CharacterType.Enemy);
+        characterInstanceID = character.instanceID;
+        print("Created character: " + character.characterName + character.instanceID);
+    }
+    private void SpawnEnemyCharacter(InputAction.CallbackContext context)
+    {
+        // gets card from deck and summons them
+        CardSetter card = SummonManager.Instance.GetCardFromDeck(1, CharacterType.Enemy);
+        if (card != null) 
+        {
+            StartCoroutine(SummonManager.Instance.SummonEnemyCharacter(card.instanceID));
+        }
+        else 
+        {
+            Debug.Log("cant find card");
+        }
     }
 }

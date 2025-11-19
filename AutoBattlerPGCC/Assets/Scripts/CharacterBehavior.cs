@@ -22,8 +22,6 @@ public enum CharacterType
 public class CharacterBehavior : MonoBehaviour
 {
     [SerializeField]
-    private InputActionReference testAttack;
-    [SerializeField]
     public NavMeshAgent agent;
     [SerializeField]
     private BehaviorGraphAgent blackboardAgent;
@@ -67,6 +65,10 @@ public class CharacterBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        // if ally set to ally if enemy set enemy
+        gameObject.tag = characterType.ToString();
+
+
         // sets up the singleton instance
         Transform weaponContainer = transform.Find("Arms/WeaponContainer");
         if (weaponContainer == null) {
@@ -120,15 +122,6 @@ public class CharacterBehavior : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
-    private void OnEnable()
-    {
-        testAttack.action.performed += Attack;
-    }
-    private void OnDisable()
-    {
-        testAttack.action.performed -= Attack;
-    }
-
     private void AttachWeapon(Transform weaponContainer)
     {
         // instantiate new weapon
@@ -158,12 +151,10 @@ public class CharacterBehavior : MonoBehaviour
 
         if (health <= 0) 
         {
-            // Handle character death
-            return;
+            StartCoroutine(CharacterManager.Instance.KillCharacter(instanceID, characterType));
         }
     }
 
-    // --- StartKnockback Method (No Change Needed) ---
     public void StartKnockback(Vector3 direction, float distance, float duration)
     {
         if (IsBeingKnockedBack) return;

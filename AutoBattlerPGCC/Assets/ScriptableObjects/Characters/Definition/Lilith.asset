@@ -25,4 +25,4 @@ MonoBehaviour:
   cost: 1
   uniqueAbilities:
   - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
-  characterCard: {fileID: 6023727987314416585, guid: 9a88f9a99f38a0542860d4998fb1fde3, type: 3}
+  characterCard: {fileID: 8480139443515533786, guid: 22884ce34008c7c4f9569df3a0585672, type: 3}
