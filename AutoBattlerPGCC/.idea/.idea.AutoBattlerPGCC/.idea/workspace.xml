@@ -5,20 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ceb331c-86c1-4dad-9bd0-0b818f1eed60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DialogScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DialogScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/Definition/Aris.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/Definition/Aris.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/Definition/Teo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/Definition/Teo.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,6 +44,77 @@
     &quot;accountId&quot;: &quot;9b11a274-f904-465e-a9b1-9c4097f463e7&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/CardScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/DialogScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adarsh Parth Kapur/OneDrive/Documents/GitHub/Epic-AutoBattler/AutoBattlerPGCC/Assets/Scripts/Dialogs/DialogView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/StoryScripts.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -42,22 +122,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Darsh__Ranch&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "XThreadsFramesViewSplitterKey": "0.62929064",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "Darsh__Ranch",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.6f2\Editor\Unity.exe" />
@@ -97,13 +182,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="32844">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="32844" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -126,6 +213,16 @@
       <workItem from="1761590181994" duration="161000" />
       <workItem from="1761590388994" duration="4406000" />
       <workItem from="1761930244990" duration="4365000" />
+      <workItem from="1761942496066" duration="4356000" />
+      <workItem from="1762194731097" duration="7454000" />
+      <workItem from="1762634702167" duration="4007000" />
+      <workItem from="1762783327499" duration="5548000" />
+      <workItem from="1762790860696" duration="488000" />
+      <workItem from="1762959621684" duration="23446000" />
+      <workItem from="1763324699949" duration="224000" />
+      <workItem from="1763501112951" duration="91000" />
+      <workItem from="1763502326226" duration="4079000" />
+      <workItem from="1763561780609" duration="52196000" />
     </task>
     <servers />
   </component>

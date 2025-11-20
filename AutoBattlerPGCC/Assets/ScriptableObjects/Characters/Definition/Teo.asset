@@ -22,5 +22,7 @@ MonoBehaviour:
   speed: 30
   strength: 70
   cost: 1
-  passive: []
-  weapon: {fileID: 0}
+  abilities:
+  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
+  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
+  weapon: {fileID: 11400000, guid: dd553ff8249355b488d068dac039f23c, type: 2}

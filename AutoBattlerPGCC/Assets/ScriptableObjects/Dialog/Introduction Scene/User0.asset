@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2998bd39f1a9a4594bd1692351ae8b, type: 3}
+  m_Name: User0
+  m_EditorClassIdentifier: Assembly-CSharp::DialogCharacter
+  dialogLines:
+  - dialogLine: '"Mh? A poster for an Interdimensional Card Battle Club?"'
+    sceneIndex: 0
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: '"Looks like it, might as well drop by and have a glance."'
+    sceneIndex: 1
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: '**A Few Hours Later After Classes**'
+    sceneIndex: 2
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: '*Entering the room you find various tables set up with a couple
+      people playing a round of Interdimensional Card Battle.*'
+    sceneIndex: 3
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: '"Sorry? ICB?"'
+    sceneIndex: 5
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: "\u201CActually yes, I am new to the game.\u201D"
+    sceneIndex: 8
+    replies: []
+    utilizesScripts: 0
+  characterName: User
+  characterImage: {fileID: 0}
+  alignment: 1
+  scene: 0
+  characterTalking: 0
+  dialogIndex: 0
