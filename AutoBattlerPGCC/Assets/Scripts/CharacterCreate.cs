@@ -51,7 +51,6 @@ public class CharacterCreate
             characterName = charDef.characterName,
             description = charDef.description,
             characterTopdown = charDef.characterTopdown,
-            characterSprite = charDef.characterSprite,
             characterCard = charDef.characterCard,
             intelligence = charDef.intelligence,
             health = charDef.health,

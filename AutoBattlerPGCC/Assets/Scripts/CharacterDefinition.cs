@@ -26,7 +26,6 @@ public class CharacterDefinition : ScriptableObject
     public string characterName;
     public string description;
     public GameObject characterTopdown;
-    public Sprite characterSprite;
     [Header("Character Stats")]
     public int intelligence;
     public int health;
