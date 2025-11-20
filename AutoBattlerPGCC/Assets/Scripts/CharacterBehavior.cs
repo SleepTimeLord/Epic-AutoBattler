@@ -23,11 +23,12 @@ public class CharacterBehavior : MonoBehaviour
 {
     [SerializeField]
     public NavMeshAgent agent;
+    public Bar healthBar;
     [SerializeField]
     private BehaviorGraphAgent blackboardAgent;
     [SerializeField] private Rigidbody2D rb;
     [Header("Initial Stats")]
-    public int intialHealth;
+    public int initialHealth;
     [Header("Character Info")]
     public string characterName;
     public CharacterDefinition characterDefinition;
@@ -65,6 +66,9 @@ public class CharacterBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        initialHealth = characterDefinition.health;
+
+        healthBar.SetMax(initialHealth);
         // if ally set to ally if enemy set enemy
         gameObject.tag = characterType.ToString();
 
@@ -122,6 +126,7 @@ public class CharacterBehavior : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
+
     private void AttachWeapon(Transform weaponContainer)
     {
         // instantiate new weapon
@@ -146,6 +151,7 @@ public class CharacterBehavior : MonoBehaviour
     {
         attackedWeapon = weapon;
         tookDamage = true;
+        healthBar.Change(-damageAmount);
         health -= damageAmount;
 
         if (health <= 0)
@@ -176,7 +182,7 @@ public class CharacterBehavior : MonoBehaviour
         float forceMultiplier = forceMultiplierSet; // Tweak this for strength
         float impulseForce = rb.mass * (distance / duration) * forceMultiplier;
 
-        // --- 1. CRITICAL SETUP: Disable Agent & Enable Physics ---
+        // disable Agent & Enable Physics 
         if (agent != null && agent.isOnNavMesh)
         {
             // Stop pathing logic FIRST (prevents SetDestination errors)

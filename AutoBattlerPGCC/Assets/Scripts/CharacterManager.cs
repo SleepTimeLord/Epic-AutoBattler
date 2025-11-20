@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.tvOS;
 
 // TODO: make enemy container inside the scene so the enemies can acutally spawn too
 public class CharacterManager : MonoBehaviour
@@ -102,14 +103,12 @@ public class CharacterManager : MonoBehaviour
         allyCharacters.Remove(instanceID);
     }
 
-
     // Method to get an enemy character by instanceID
     public void RemoveEnemyCharacter(string instanceID)
     {
-
         if (!enemyCharacters.ContainsKey(instanceID))
         {
-            Debug.LogWarning($"no ally found with instanceID {instanceID}");
+            Debug.LogWarning($"no enemy found with instanceID {instanceID}");
             return;
         }
 
@@ -119,7 +118,6 @@ public class CharacterManager : MonoBehaviour
         foreach (Transform card in enemyCardContainer.transform)
         {
             CardSetter setter = card.GetComponent<CardSetter>();
-
 
             if (setter != null && setter.instanceID == instanceID)
             {
@@ -132,16 +130,17 @@ public class CharacterManager : MonoBehaviour
         enemyCharacters.Remove(instanceID);
     }
 
-    // a wrapper to start the coroutine from CharacterManager because we gonna destroy CharacterBehavior 
-    // which stops the script midway because its destroyed
+    // CHANGED: Added wrapper method to start coroutine from CharacterManager instead of CharacterBehavior
+    // This is critical because if we start the coroutine from CharacterBehavior and then destroy that GameObject,
+    // the coroutine will be killed mid-execution and RemoveAllyCharacter will never be called
     public void StartKillCharacterCoroutine(string instanceID, CharacterType characterType)
     {
         StartCoroutine(KillCharacter(instanceID, characterType));
     }
 
+    // handle the kill sequence:
     public IEnumerator KillCharacter(string instanceID, CharacterType characterType)
     {
-
         if (characterType == CharacterType.Ally)
         {
             if (!allyCharacters.ContainsKey(instanceID))
@@ -152,16 +151,18 @@ public class CharacterManager : MonoBehaviour
 
             if (spawnedCharacters.ContainsKey(instanceID))
             {
-                // destory character gameobject
+                // destroy the physical character GameObject first
                 DespawnCharacter(instanceID, characterType);
 
-                // desummons card
+                // animate the card back to hand (reparents but doesn't clear currentSummoned)
                 yield return StartCoroutine(SummonManager.Instance.DesummonCard(instanceID, characterType));
+
+                // clear the currentSummoned reference so a new character can be summoned
+                SummonManager.Instance.ClearCurrentSummoned(characterType);
             }
 
-            // after desummon then fully kill instance of character and move to deadAllyCharacter
+            // move to dead pool and remove from active dictionaries
             deadAllyCharacters[instanceID] = GetCharacter(instanceID, characterType);
-
             RemoveAllyCharacter(instanceID);
         }
         else
@@ -174,8 +175,12 @@ public class CharacterManager : MonoBehaviour
 
             if (spawnedCharacters.ContainsKey(instanceID))
             {
+                // Same sequence for enemies
                 DespawnCharacter(instanceID, characterType);
                 yield return StartCoroutine(SummonManager.Instance.DesummonCard(instanceID, characterType));
+
+                // ADDED - Clear enemy reference
+                SummonManager.Instance.ClearCurrentSummoned(characterType);
             }
 
             deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
@@ -184,7 +189,7 @@ public class CharacterManager : MonoBehaviour
     }
 
     // to respawn characters theoretically idk if work
-    public void RespawnCharacter(string instanceID, CharacterType characterType) 
+    public void RespawnCharacter(string instanceID, CharacterType characterType)
     {
         if (characterType == CharacterType.Ally)
         {
@@ -202,7 +207,7 @@ public class CharacterManager : MonoBehaviour
                 Debug.LogWarning("cant find dead ally");
             }
         }
-        else 
+        else
         {
             if (deadEnemyCharacters.TryGetValue(instanceID, out CharacterCreate character))
             {
@@ -220,8 +225,8 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void SetCharacterBaseStats(CharacterCreate character, CharacterDefinition characterBase) 
-    { 
+    public void SetCharacterBaseStats(CharacterCreate character, CharacterDefinition characterBase)
+    {
         character.health = characterBase.health;
         character.intelligence = characterBase.intelligence;
         character.speed = characterBase.speed;
@@ -335,7 +340,6 @@ public class CharacterManager : MonoBehaviour
             else
             {
                 Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
-
             }
         }
         else
@@ -359,7 +363,6 @@ public class CharacterManager : MonoBehaviour
             else
             {
                 Debug.LogError($"UpdateCharacterStats: No spawned character found with instanceID {characterID}");
-
             }
         }
     }
@@ -370,7 +373,7 @@ public class CharacterManager : MonoBehaviour
         character.cost = character.cost + character.weapon.additionalCost;
         if (character.abilities != null)
         {
-            foreach(var ability in character.abilities)
+            foreach (var ability in character.abilities)
             {
                 character.cost += ability.additionalCost;
             }
@@ -421,8 +424,8 @@ public class CharacterManager : MonoBehaviour
         characterBehavior.weapon = character.weapon;
     }
 
-    public void UpdateCharacterCard(string instanceID, CardSetter card, CharacterType characterType) 
-    { 
+    public void UpdateCharacterCard(string instanceID, CardSetter card, CharacterType characterType)
+    {
         CharacterCreate character = GetCharacter(instanceID, characterType);
         card.characterDescriptionText.text = character.description;
         card.characterCost.text = character.cost.ToString();
@@ -445,10 +448,10 @@ public class CharacterManager : MonoBehaviour
     }
 
     // instantiate an instance of character card into a container
-    private void SpawnCharacterCard(CharacterCreate character) 
+    private void SpawnCharacterCard(CharacterCreate character)
     {
         CharacterBehavior characterBehavior = character.characterTopdown.GetComponent<CharacterBehavior>();
-        if (characterBehavior == null) 
+        if (characterBehavior == null)
         {
             Debug.LogWarning("No character behavior detected");
             return;
@@ -459,7 +462,7 @@ public class CharacterManager : MonoBehaviour
             GameObject card = Instantiate(character.characterCard);
             card.transform.SetParent(cardContainer.transform, false);
         }
-        else 
+        else
         {
             GameObject card = Instantiate(character.characterCard);
             card.transform.SetParent(enemyCardContainer.transform, false);
@@ -481,7 +484,7 @@ public class CharacterManager : MonoBehaviour
             {
                 Debug.LogError("no regularAbilities found");
             }
-            else 
+            else
             {
                 cardSetter.instanceID = character.instanceID;
                 cardSetter.characterDescriptionText.text = character.description;
@@ -497,7 +500,7 @@ public class CharacterManager : MonoBehaviour
                     {
                         continue;
                     }
-                    else 
+                    else
                     {
                         cardSetter.regularSkillPlaceholder.sprite = ability.abilityIcon;
                         break;
@@ -507,7 +510,8 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public CharacterCreate GetCharacter(string InstanceID, CharacterType characterType) {
+    public CharacterCreate GetCharacter(string InstanceID, CharacterType characterType)
+    {
         if (characterType == CharacterType.Ally)
         {
             if (allyCharacters.TryGetValue(InstanceID, out CharacterCreate value))
@@ -518,6 +522,7 @@ public class CharacterManager : MonoBehaviour
             {
                 Debug.LogError("No character in ally characters that have that instanceID");
                 return null;
+
             }
         }
         else if (characterType == CharacterType.Enemy)
@@ -532,6 +537,9 @@ public class CharacterManager : MonoBehaviour
                 return null;
             }
         }
-        else { return null; }
+        else
+        {
+            return null;
+        }
     }
 }

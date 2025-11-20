@@ -19,7 +19,7 @@ MonoBehaviour:
   holdOffset: {x: -1.1012846, y: 0.0049396926, z: 0}
   scaleOffset: {x: 7, y: 7, z: 7}
   damage: 5
-  attackSpeed: 1.5
+  attackSpeed: 2
   range: 1
   additionalCost: 1
   attackSlow: 0.2

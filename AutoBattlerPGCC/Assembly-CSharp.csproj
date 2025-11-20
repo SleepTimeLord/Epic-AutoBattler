@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\BehaviorScripts\CharacterAttackAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\LookAtTargetAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\IsAgentEnabledAction.cs" />
+    <Compile Include="Assets\Scripts\RectTransformExtensions.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTakeDamageAction.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\CleanseAbility.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Abilities\UniqueAbilities\SlipAwayAbility.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\HeartstopAbility.cs" />
+    <Compile Include="Assets\Scripts\Bar.cs" />
     <Compile Include="Assets\Scripts\Abilities\RegularAbilities\LightningRodAbility.cs" />
     <Compile Include="Assets\Scripts\HitCharacter.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />

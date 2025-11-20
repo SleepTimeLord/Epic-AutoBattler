@@ -46,11 +46,10 @@ public class SummonManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
     }
 
     // gets card from deck
-    public CardSetter GetCardFromDeck(int placement, CharacterType characterType) 
+    public CardSetter GetCardFromDeck(int placement, CharacterType characterType)
     {
         if (characterType == CharacterType.Ally)
         {
@@ -62,7 +61,7 @@ public class SummonManager : MonoBehaviour
             }
             return card;
         }
-        else 
+        else
         {
             CardSetter card = enemyContainer.transform.GetChild(placement).GetComponent<CardSetter>();
             if (card == null)
@@ -79,30 +78,29 @@ public class SummonManager : MonoBehaviour
     {
         CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID, CharacterType.Ally);
         CardSetter card = character.characterCard.GetComponent<CardSetter>();
+
         if (currentSummoned == null)
         {
-            if (card != null) 
+            if (card != null)
             {
                 SetCurrentSummon(instanceID);
                 // wait for character to spawn then lerp
                 yield return StartCoroutine(LerpToPosition(currentSummoned, spawnPosition, CharacterType.Ally));
                 CharacterManager.Instance.SpawnCharacter(instanceID, spawnPosition.position, CharacterType.Ally);
             }
-            else 
+            else
             {
                 Debug.Log("cant find card");
             }
-
         }
-        else 
+        else
         {
-            Debug.Log("summoning now");
             // finishes desummoning character before setingcurrentsummon
             StartCoroutine(SummonNewCard(currentSummonedID, instanceID, CharacterType.Ally));
         }
     }
 
-    public IEnumerator SummonEnemyCharacter(string instanceID) 
+    public IEnumerator SummonEnemyCharacter(string instanceID)
     {
         CharacterCreate character = CharacterManager.Instance.GetCharacter(instanceID, CharacterType.Enemy);
         CardSetter card = character.characterCard.GetComponent<CardSetter>();
@@ -119,15 +117,16 @@ public class SummonManager : MonoBehaviour
                 Debug.Log("cant find card");
             }
         }
-        else 
+        else
         {
-            SummonNewCard(currentEnemySummonedID, instanceID, CharacterType.Enemy);
+            StartCoroutine(SummonNewCard(currentEnemySummonedID, instanceID, CharacterType.Enemy));
         }
     }
 
     // make a card back to deck method to break this up
-    private IEnumerator SummonNewCard(string currentInstanceID, string newInstanceID, CharacterType characterType) 
+    private IEnumerator SummonNewCard(string currentInstanceID, string newInstanceID, CharacterType characterType)
     {
+        CharacterManager.Instance.DespawnCharacter(currentInstanceID, characterType);
         // waits to desummon card
         yield return StartCoroutine(DesummonCard(currentInstanceID, characterType));
         if (characterType == CharacterType.Ally)
@@ -137,12 +136,14 @@ public class SummonManager : MonoBehaviour
             // sets the card going back to hand to cardcontainer in the same spot
             currentSummoned.SetParent(cardContainer.transform, false);
             currentSummoned.SetSiblingIndex(lastIndex);
+            // set new current summoned
             SetCurrentSummon(newInstanceID);
 
+            // summon new card to board
             StartCoroutine(LerpToPosition(currentSummoned, spawnPosition, characterType));
             CharacterManager.Instance.SpawnCharacter(newInstanceID, spawnPosition.position, characterType);
         }
-        else 
+        else
         {
             // after it stops lerping sets placeholder to ignore the layout
             enemyPlaceHolderLayout.ignoreLayout = true;
@@ -156,6 +157,8 @@ public class SummonManager : MonoBehaviour
         }
     }
 
+    // This allows SummonNewCard to still access currentSummoned after desummoning
+    // DesummonCard now handles animation and reparenting but does NOT clear currentSummoned
     public IEnumerator DesummonCard(string instanceID, CharacterType characterType)
     {
         if (characterType == CharacterType.Ally)
@@ -175,9 +178,7 @@ public class SummonManager : MonoBehaviour
             currentSummoned.SetParent(cardContainer.transform, false);
             currentSummoned.SetSiblingIndex(lastIndex);
 
-            // clear the current summoned reference
-            currentSummoned = null;
-            currentSummonedID = null;
+            // The caller (KillCharacter or SummonNewCard) decides when to clear currentsummoned
         }
         else
         {
@@ -193,11 +194,25 @@ public class SummonManager : MonoBehaviour
             currentEnemySummoned.SetParent(enemyContainer.transform, false);
             currentEnemySummoned.SetSiblingIndex(enemyLastIndex);
 
+        }
+    }
+
+    // clears the currentSummoned references
+    public void ClearCurrentSummoned(CharacterType characterType)
+    {
+        if (characterType == CharacterType.Ally)
+        {
+            currentSummoned = null;
+            currentSummonedID = null;
+        }
+        else
+        {
             currentEnemySummoned = null;
             currentEnemySummonedID = null;
         }
     }
 
+    // sets card to the currently summoned card
     private void SetCurrentSummon(string instanceID)
     {
         if (cardContainer.transform.childCount == 0) { Debug.Log("No children"); return; }
@@ -222,19 +237,19 @@ public class SummonManager : MonoBehaviour
         }
     }
 
-    private void SetCurrentEnemySummon(string instanceID) 
+    private void SetCurrentEnemySummon(string instanceID)
     {
         if (enemyContainer.transform.childCount == 0) { Debug.Log("No children"); return; }
 
-        foreach (RectTransform card in enemyContainer.transform) 
+        foreach (RectTransform card in enemyContainer.transform)
         {
             CardSetter cardInfo = card.GetComponent<CardSetter>();
-            if (cardInfo == null) 
+            if (cardInfo == null)
             {
                 continue;
             }
-            if (cardInfo.instanceID == instanceID) 
-            { 
+            if (cardInfo.instanceID == instanceID)
+            {
                 currentEnemySummoned = card;
                 currentEnemySummonedID = cardInfo.instanceID;
 
@@ -281,7 +296,7 @@ public class SummonManager : MonoBehaviour
             target.localScale = targetScale;
             isPlacingCard = false;
         }
-        else 
+        else
         {
             float t = 0f;
             while (t < 1f)
