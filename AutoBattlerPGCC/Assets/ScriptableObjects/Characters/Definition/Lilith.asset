@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ba6c07317611e4baa183159f29b9c8, type: 3}
+  m_Name: Lilith
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  guid: 3a501728-1462-4cf0-a9d9-358c88ace6e6
+  characterName: Lilith
+  description: "Introverted assassin that likes to work alone. She\u2019ll work with
+    others if required, but would rather do her own thing.  "
+  characterTopdown: {fileID: 6008052734616835099, guid: bdd80df4ed4402f478c27ed855297db1, type: 3}
+  characterSprite: {fileID: 1908110545521356292, guid: ba36fad12e04dcf49b5fd3e560dd5efb, type: 3}
+  intelligence: 30
+  health: 40
+  speed: 100
+  strength: 30
+  cost: 1
+  uniqueAbilities:
+  - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
+  characterCard: {fileID: 8480139443515533786, guid: 22884ce34008c7c4f9569df3a0585672, type: 3}

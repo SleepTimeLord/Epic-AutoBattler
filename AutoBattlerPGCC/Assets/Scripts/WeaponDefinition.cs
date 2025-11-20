@@ -13,10 +13,22 @@ public class WeaponDefinition : ScriptableObject
     [Header("Weapon Info")]
     public string weaponName;
     public WeaponType weaponType;
-    public GameObject weaponIcon;
+    public GameObject weaponGameObject;
+    public Sprite weaponIcon;
+    [Header("Weapon Offsets")]
+    public Vector3 holdOffset;
+    public Vector3 scaleOffset;
     [Header("Weapon Stats")]
     public int damage;
     public float attackSpeed;
     public float range;
     public int additionalCost;
+    public float attackSlow;
+    public float attackKnockbackDistance;
+    public float attackKnockbackDuration;
+
+    public virtual void Attack(CharacterBehavior userStats) 
+    { 
+        
+    }
 }
