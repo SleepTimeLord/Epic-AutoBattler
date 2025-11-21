@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -16,56 +13,46 @@ public class CardPicker : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public TextMeshProUGUI characterCost;
     public TextMeshProUGUI characterHealth;
 
-    public List<CharacterDefinition> characterDefinitionList;
-    public List<WeaponDefinition> weaponDefinitionList;
-    public List<AbilityDefinition[]> abilityDefinitionList;
-    
-    private List<CharacterDefinition> allyCharacters;
-    private List<CharacterDefinition> enemyCharacters;
-    
+    // Set this in inspector
+    public CharacterDefinition characterDefinition;
 
-    private byte pickingCounter = 0;
-    private void Awake()
-    {
-        
-    }
-    
-    
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (pickingCounter < 2)
+        if (!CardPickerManager.Instance.picked)
         {
-            characterDefinitionList.Add(obj.GetComponent<CharacterDefinition>());
-            obj.SetParent(canvas, false);
-            pickingCounter++;
+            CardPickerManager.Instance.picked = true;
+            obj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
+            StartCoroutine(Enlarge());
+
+            // Notify the manager that this card was picked
+            if (CardPickerManager.Instance != null)
+            {
+                CardPickerManager.Instance.OnCardPicked(this);
+            }
         }
     }
-    
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        obj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        StartCoroutine(enlarge());
+        if (!CardPickerManager.Instance.picked)
+        {
+            obj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
+            StartCoroutine(Enlarge());
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        obj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        StartCoroutine(shrink());
-    }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+        if (!CardPickerManager.Instance.picked)
+        {
+            obj.localScale = new Vector3(0.015f, 0.015f, 0.015f);
+            StartCoroutine(Shrink());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public IEnumerator enlarge()
+    public IEnumerator Enlarge()
     {
         float i = 0.015f;
         while (obj.localScale.x < 0.02f)
@@ -75,8 +62,9 @@ public class CardPicker : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             yield return new WaitForSeconds(0.01f);
         }
     }
-    
-    public IEnumerator shrink(){
+
+    public IEnumerator Shrink()
+    {
         float i = 0.02f;
         while (obj.localScale.x > 0.015f)
         {

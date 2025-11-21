@@ -1,16 +1,19 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SkillPicker : MonoBehaviour
+public class SkillPicker : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public AbilityDefinition ad;
+    public CardPickerManager manager;
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (ad != null && manager != null)
+        {
+            manager.OnAbilityPicked(ad);
+            Destroy(gameObject);
+        }
     }
 }

@@ -17,7 +17,8 @@ public class CardSetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
     }
     public void OnPointerClick(PointerEventData eventData)
-    { 
+    {
+        if (SummonManager.Instance == null) { return; }
         if (!SummonManager.Instance.isPlacingCard && !SummonManager.Instance.IsCardOnBoard(gameObject.GetComponent<CardSetter>())) {
             StartCoroutine(SummonManager.Instance.SummonCharacter(instanceID));
         }

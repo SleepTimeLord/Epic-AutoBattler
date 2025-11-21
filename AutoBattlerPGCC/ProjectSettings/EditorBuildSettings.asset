@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2942c18c62efb424a95e6ed8af30f50b
   - enabled: 1
-    path: Assets/Scenes/DialogScene.unity
-    guid: 5cc90e9b213452a4785881ad2435fd31
-  - enabled: 1
     path: Assets/Scenes/DeckBuildingScene.unity
     guid: 15aa2a5e29184be4d96fde725208c040
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: be0735324084fcf4fa6c3ec3ec26d157
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: ba3481936393a974d853be78ba95d32c
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

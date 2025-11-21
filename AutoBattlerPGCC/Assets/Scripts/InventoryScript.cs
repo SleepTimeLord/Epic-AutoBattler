@@ -1,46 +1,31 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class PlayerData
+{
+    public CharacterDefinition characterDefinition;
+    public WeaponDefinition weaponDefinition;
+    public AbilityDefinition[] abilityDefinition;
+}
+
+[System.Serializable]
+public class EnemyData
+{
+    public CharacterDefinition characterDefinition;
+    public WeaponDefinition weaponDefinition;
+    public AbilityDefinition[] abilityDefinition;
+}
 
 public class InventoryScript : MonoBehaviour
 {
-    public static ArrayList PlayerInventory;
-    public static ArrayList EnemyInventory;
-    private static InventoryScript Instance;
-    
-    public void createCharacterInInventory(
-        CharacterDefinition charDef,  
-        WeaponDefinition wepDef, 
-        AbilityDefinition[] abilDef,  
-        CharacterType charType)
-    {
+    public List<PlayerData> playerData = new List<PlayerData>();
+    public List<EnemyData> OGEnemyData = new List<EnemyData>();
+    public List<EnemyData> enemyData = new List<EnemyData>();
 
-        //InventoryScript.PlayerInventory.Add(CharacterCreate.CreateFromDefinition(, , , CharacterType.Ally)); //////////////////////////////////////////
+    public static InventoryScript Instance { get; private set; }
 
-    }
-    public void createEnemyInInventory(
-        CharacterDefinition charDef,  
-        WeaponDefinition wepDef, 
-        AbilityDefinition[] abilDef,  
-        CharacterType charType)
-    {
-
-        //CharacterCreate.CreateFromDefinition(, , , CharacterType.Ally); ///////////////////////////////////////////////////////////////////////////////
-
-    }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        PlayerInventory ??= new ArrayList();
-        EnemyInventory ??= new  ArrayList();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     private void Awake()
     {
         if (Instance == null)
@@ -52,6 +37,6 @@ public class InventoryScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        OGEnemyData = enemyData;
     }
-    
 }
