@@ -16,11 +16,12 @@ MonoBehaviour:
   characterName: Teo
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
-  characterIcon: {fileID: 6015935153271221123, guid: 0b3f8fdd03c34824db5dcaeee6f07493, type: 3}
+  characterTopdown: {fileID: 2500055822379302310, guid: 9f8aece5f4d51064cba903ebe8c7f6ae, type: 3}
   intelligence: 10
-  health: 90
+  health: 290
   speed: 30
   strength: 70
   cost: 1
-  passive: []
-  weapon: {fileID: 0}
+  uniqueAbilities:
+  - {fileID: 11400000, guid: aecb685ead56ec245849f049171947aa, type: 2}
+  characterCard: {fileID: 3014823515255968091, guid: b96a430e80021ff4ca91e0b5f8074083, type: 3}

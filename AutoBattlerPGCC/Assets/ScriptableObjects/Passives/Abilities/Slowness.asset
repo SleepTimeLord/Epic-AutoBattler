@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9460b0ba2df4bc4e97ad63940ce7b2f, type: 3}
+  m_Name: Slowness
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
+  abilityName: Slowness
+  abilityIcon: {fileID: 2726740420715531847, guid: 8ad0275055bcaad439fd16a3a2be6596, type: 3}
+  description: 
+  abilityType: 0
+  trigger: 1
+  intervalTime: 5
+  cooldown: 5
+  additionalCost: 1
+  conditions: []
+  effects:
+  - rid: 7871668101356191828
+  references:
+    version: 2
+    RefIds:
+    - rid: 7871668101356191828
+      type: {class: StatModifierEffect, ns: , asm: Assembly-CSharp}
+      data:
+        modifierTarget: 1
+        aoeRadius: 0
+        statToModify: 01000000
+        modifierAmount: -20
+        duration: 5
+        scalesWithStat: 1
+        scalingStat: 2
+        scalingMultiplier: 0.2

@@ -109,6 +109,15 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CreateEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ecaeb34-d080-4902-a7ed-a7c746246da1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -133,6 +142,17 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""action"": ""Spawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba230e16-d081-4383-968a-4cef1f819833"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CreateEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_TestInputs = asset.FindActionMap("TestInputs", throwIfNotFound: true);
         m_TestInputs_Create = m_TestInputs.FindAction("Create", throwIfNotFound: true);
         m_TestInputs_Spawn = m_TestInputs.FindAction("Spawn", throwIfNotFound: true);
+        m_TestInputs_CreateEnemy = m_TestInputs.FindAction("CreateEnemy", throwIfNotFound: true);
     }
 
     ~@Input()
@@ -225,6 +246,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private List<ITestInputsActions> m_TestInputsActionsCallbackInterfaces = new List<ITestInputsActions>();
     private readonly InputAction m_TestInputs_Create;
     private readonly InputAction m_TestInputs_Spawn;
+    private readonly InputAction m_TestInputs_CreateEnemy;
     /// <summary>
     /// Provides access to input actions defined in input action map "TestInputs".
     /// </summary>
@@ -244,6 +266,10 @@ public partial class @Input: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "TestInputs/Spawn".
         /// </summary>
         public InputAction @Spawn => m_Wrapper.m_TestInputs_Spawn;
+        /// <summary>
+        /// Provides access to the underlying input action "TestInputs/CreateEnemy".
+        /// </summary>
+        public InputAction @CreateEnemy => m_Wrapper.m_TestInputs_CreateEnemy;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -276,6 +302,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Spawn.started += instance.OnSpawn;
             @Spawn.performed += instance.OnSpawn;
             @Spawn.canceled += instance.OnSpawn;
+            @CreateEnemy.started += instance.OnCreateEnemy;
+            @CreateEnemy.performed += instance.OnCreateEnemy;
+            @CreateEnemy.canceled += instance.OnCreateEnemy;
         }
 
         /// <summary>
@@ -293,6 +322,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Spawn.started -= instance.OnSpawn;
             @Spawn.performed -= instance.OnSpawn;
             @Spawn.canceled -= instance.OnSpawn;
+            @CreateEnemy.started -= instance.OnCreateEnemy;
+            @CreateEnemy.performed -= instance.OnCreateEnemy;
+            @CreateEnemy.canceled -= instance.OnCreateEnemy;
         }
 
         /// <summary>
@@ -347,5 +379,12 @@ public partial class @Input: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpawn(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CreateEnemy" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCreateEnemy(InputAction.CallbackContext context);
     }
 }

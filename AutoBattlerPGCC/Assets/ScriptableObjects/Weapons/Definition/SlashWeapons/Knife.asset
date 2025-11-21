@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f87cf7250bf539498ce9fb616e9b090, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: Assembly-CSharp::SlashDefinition
+  weaponName: Knife
+  weaponType: 0
+  weaponGameObject: {fileID: 3356805041457579448, guid: 850d1c35bf7da9744910888a8f00d00f, type: 3}
+  weaponIcon: {fileID: 761100573506273824, guid: 9b7cad97896e3064aa4c6ab43cb182d2, type: 3}
+  holdOffset: {x: -1.1012846, y: 0.0049396926, z: 0}
+  scaleOffset: {x: 7, y: 7, z: 7}
+  damage: 5
+  attackSpeed: 2
+  range: 1
+  additionalCost: 1
+  attackSlow: 0.2
+  attackKnockbackDistance: 2
+  attackKnockbackDuration: 0.1
+  attackAnimation: {fileID: 9100000, guid: d9923d11cb0323643b4dec75a653a550, type: 2}
+  rightAttackName: SwingRight
+  leftAttackName: SwingLeft

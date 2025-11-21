@@ -15,11 +15,12 @@ MonoBehaviour:
   guid: 13a15806-6c35-418e-ba54-28ffde7c9e34
   characterName: Aris
   description: ' A pyromaniac that really likes to mess with people for fun.'
-  characterIcon: {fileID: 0}
+  characterTopdown: {fileID: 6852196448167293073, guid: d83727ee998c2fb438624a1125a2494a, type: 3}
   intelligence: 80
-  health: 40
+  health: 240
   speed: 40
   strength: 40
   cost: 1
-  passive: []
-  weapon: {fileID: 0}
+  uniqueAbilities:
+  - {fileID: 11400000, guid: d4ce97576556369498a70290bc6235d0, type: 2}
+  characterCard: {fileID: 306591431088467977, guid: de172570256ea6b4da51e6274e474e6d, type: 3}
