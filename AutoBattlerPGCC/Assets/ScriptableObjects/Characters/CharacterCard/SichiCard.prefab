@@ -631,14 +631,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  characterDescriptionText: {fileID: 2203321951719963582}
-  uniqueSkillPlaceholder: {fileID: 7789466256970948526}
-  regularSkillPlaceholder: {fileID: 5612431587986732331}
-  characterCost: {fileID: 3982022909877895498}
-  characterHealth: {fileID: 3709697109407904786}
-  swordIcon: {fileID: 9155195175800600398}
-  instanceID: 24ba353c-2c6f-4d64-b469-a12679ab5510
+  m_EditorClassIdentifier: Assembly-CSharp::CardSetter
+  characterDescriptionText: {fileID: 0}
+  uniqueSkillPlaceholder: {fileID: 0}
+  regularSkillPlaceholder: {fileID: 0}
+  characterCost: {fileID: 0}
+  characterHealth: {fileID: 0}
+  swordIcon: {fileID: 0}
+  instanceID: 
 --- !u!114 &4931540732842512426
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.Behavior;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -21,11 +22,13 @@ public enum CharacterType
 }
 public class CharacterBehavior : MonoBehaviour
 {
-    [SerializeField]
+    [Header("NavMeshAgent")]
     public NavMeshAgent agent;
+    [Header("Behavior")]
+    [SerializeField] private BehaviorGraphAgent blackboardAgent;
+    [Header("Ability System")]
+    private AbilityManager abilityManager;
     public Bar healthBar;
-    [SerializeField]
-    private BehaviorGraphAgent blackboardAgent;
     [SerializeField] private Rigidbody2D rb;
     [Header("Initial Stats")]
     public int initialHealth;
@@ -69,9 +72,16 @@ public class CharacterBehavior : MonoBehaviour
         initialHealth = characterDefinition.health;
 
         healthBar.SetMax(initialHealth);
+        healthBar.Change(-(initialHealth - health));
         // if ally set to ally if enemy set enemy
         gameObject.tag = characterType.ToString();
 
+        // sets up ability manager
+        abilityManager = gameObject.GetComponent<AbilityManager>();
+        if (abilityManager == null) 
+        { 
+            abilityManager = gameObject.AddComponent<AbilityManager>();
+        }
 
         // sets up the singleton instance
         Transform weaponContainer = transform.Find("Arms/WeaponContainer");
@@ -126,6 +136,14 @@ public class CharacterBehavior : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
+    private void Start()
+    {
+        // initialize abilities after everything is setup with the character
+        if (abilityManager != null) 
+        { 
+            abilityManager.InitializeAbilities();
+        }
+    }
 
     private void AttachWeapon(Transform weaponContainer)
     {
@@ -154,12 +172,56 @@ public class CharacterBehavior : MonoBehaviour
         healthBar.Change(-damageAmount);
         health -= damageAmount;
 
+        // trigger OnDamaged
+        abilityManager?.TriggerAbilities(AbilityTrigger.OnDamaged);
+
+        // trigger Health
+        abilityManager?.TriggerAbilities(AbilityTrigger.OnHealthThreshold);
+
         if (health <= 0)
         {
+            // trigger OnDeath
+            abilityManager?.TriggerAbilities(AbilityTrigger.OnDeath);
             // DON'T start the coroutine from this GameObject - it's about to be destroyed!
             // Instead, let CharacterManager handle it
             CharacterManager.Instance.StartKillCharacterCoroutine(instanceID, characterType);
         }
+    }
+
+    public void HealDamage(int healAmount) 
+    {
+        Debug.Log("healed this amount");
+        healthBar.Change(healAmount);
+        health = Mathf.Min(health + healAmount, initialHealth);
+
+    }
+
+    // reference in attacking
+    public void OnAttackHit(CharacterBehavior target) 
+    {
+        // combobased abilities
+        abilityManager?.IncrementCombos();
+
+        // trigger OnAttack ability
+        abilityManager?.TriggerAbilities(AbilityTrigger.OnAttack, target);
+
+        if (target != null && target.health <= 0) 
+        {
+            // trigger onkill abilities
+            abilityManager?.TriggerAbilities(AbilityTrigger.OnKill, target);
+        }
+    }
+
+    // for manually activating active abilities
+    public void UseActiveAbility(int abilityIndex) 
+    {
+        abilityManager.ActivateActiveAbility(abilityIndex);
+    }
+
+    // for if there is too much time between the attacks
+    public void ResetCombo()
+    { 
+        abilityManager?.ResetAllCombos();
     }
 
     public void StartKnockback(Vector3 direction, float distance, float duration)

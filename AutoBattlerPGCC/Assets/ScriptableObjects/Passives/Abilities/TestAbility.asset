@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9460b0ba2df4bc4e97ad63940ce7b2f, type: 3}
+  m_Name: TestAbility
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
+  abilityName: tes
+  abilityIcon: {fileID: 3237797513216941983, guid: cefbf6e5098801849a4f095e96dd9992, type: 3}
+  description: sad
+  abilityType: 0
+  trigger: 0
+  intervalTime: 5
+  cooldown: 3
+  additionalCost: 1
+  conditions: []
+  effects: []
+  references:
+    version: 2
+    RefIds: []

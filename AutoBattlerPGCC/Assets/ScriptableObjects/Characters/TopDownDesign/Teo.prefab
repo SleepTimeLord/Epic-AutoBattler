@@ -476,9 +476,10 @@ GameObject:
   - component: {fileID: 6288565168671806550}
   - component: {fileID: 6347539955934615016}
   - component: {fileID: -1720776901190809364}
+  - component: {fileID: 398803183954325946}
   m_Layer: 0
   m_Name: Teo
-  m_TagString: Ally
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,13 +517,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   agent: {fileID: 0}
-  healthBar: {fileID: 8423137290541183852}
   blackboardAgent: {fileID: 0}
+  healthBar: {fileID: 8423137290541183852}
   rb: {fileID: 0}
   initialHealth: 0
   characterName: Teo
   characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  instanceID: 3c2ba669-ad96-4664-bfd5-aed8c20a71a3
+  instanceID: 01c59124-0929-4cf5-ba19-5d3fc2b7ec51
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
@@ -530,12 +531,12 @@ MonoBehaviour:
   health: 90
   speed: 30
   strength: 70
-  cost: 7
+  cost: 4
   passiveAbility:
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
-  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
+  - {fileID: 11400000, guid: cde4adcaebe8ae140b262cd9fb4a0283, type: 2}
+  - {fileID: 11400000, guid: aecb685ead56ec245849f049171947aa, type: 2}
   activeAbility: []
-  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
+  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
@@ -691,6 +692,18 @@ MonoBehaviour:
           m_Value1: 8600491784028432797
         Name: ChaseTarget
         m_Value: {fileID: 6347539955934615016}
+--- !u!114 &398803183954325946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500055822379302310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e9b0935ef8f9840856c9c1bb698328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityManager
 --- !u!1 &3913916549420035205
 GameObject:
   m_ObjectHideFlags: 0

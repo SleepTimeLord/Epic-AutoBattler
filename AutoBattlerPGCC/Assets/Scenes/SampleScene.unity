@@ -358,7 +358,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2254,10 +2254,10 @@ MonoBehaviour:
   createAction: {fileID: 6717257663641732102, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   spawnAction: {fileID: 2059071318678266246, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   createEnemyAction: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
-  characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
+  characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
   weaponDefinition: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
   abilityDefinition:
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
+  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
   characterSpawn: {fileID: 674637779}
   characterInstanceID: 
 --- !u!114 &2117045791
