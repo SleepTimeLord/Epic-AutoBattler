@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CreateAndSpawn.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\KnockbackCharacterAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\State.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityInstance.cs" />
     <Compile Include="Assets\Scripts\CardSetter.cs" />
     <Compile Include="Assets\Scripts\GoToTarget.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTargetAction.cs" />
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityEffect.cs" />
     <Compile Include="Assets\Scripts\Bar.cs" />
     <Compile Include="Assets\Scripts\HitCharacter.cs" />

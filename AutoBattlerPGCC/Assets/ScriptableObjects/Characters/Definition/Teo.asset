@@ -18,7 +18,7 @@ MonoBehaviour:
     everyone else alive."
   characterTopdown: {fileID: 2500055822379302310, guid: 9f8aece5f4d51064cba903ebe8c7f6ae, type: 3}
   intelligence: 10
-  health: 90
+  health: 290
   speed: 30
   strength: 70
   cost: 1

@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 398803183954325946}
   m_Layer: 0
   m_Name: Teo
-  m_TagString: Enemy
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,17 +523,17 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Teo
   characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  instanceID: 01c59124-0929-4cf5-ba19-5d3fc2b7ec51
+  instanceID: bead28c3-91a6-4eb6-bff9-65d264981a97
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
   intelligence: 10
-  health: 90
+  health: 290
   speed: 30
   strength: 70
-  cost: 4
+  cost: 5
   passiveAbility:
-  - {fileID: 11400000, guid: cde4adcaebe8ae140b262cd9fb4a0283, type: 2}
+  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
   - {fileID: 11400000, guid: aecb685ead56ec245849f049171947aa, type: 2}
   activeAbility: []
   weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
@@ -547,6 +547,9 @@ MonoBehaviour:
   maxKnockbackTime: 0.5
   forceMultiplierSet: 20
   tookDamage: 0
+  baseDodgeChance: 5
+  dodgePerSpeed: 0.5
+  maxDodgeChance: 75
 --- !u!50 &7720751569290674125
 Rigidbody2D:
   serializedVersion: 5

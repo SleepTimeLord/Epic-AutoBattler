@@ -133,32 +133,53 @@ public class AbilityManager : MonoBehaviour
     /// <summary>
     /// Try to activate a specific ability instance
     /// Returns true if ability was activated
+    /// UPDATED: Now with recursion protection
     /// </summary>
     private bool TryActivateAbility(AbilityInstance ability, AbilityTrigger trigger, CharacterBehavior target = null)
     {
+        // ADDED: Prevent recursive ability activation
+        if (character.IsProcessingAbility())
+        {
+            return false;
+        }
+
         // Check if all conditions are met
         if (!ability.definition.CanActivate(character, ability))
         {
             return false;
         }
 
-        // Get target if not provided
-        if (target == null)
+        // ADDED: Mark ability as being processed
+        character.BeginAbilityProcessing(ability.definition.abilityName);
+
+        try
         {
-            Transform targetTransform = character.GetClosestTarget();
-            target = targetTransform != null ? targetTransform.GetComponent<CharacterBehavior>() : null;
+            // Get target if not provided
+            if (target == null)
+            {
+                Transform targetTransform = character.GetClosestTarget();
+                target = targetTransform != null ? targetTransform.GetComponent<CharacterBehavior>() : null;
+            }
+
+            // Activate the ability
+            ability.definition.Activate(character, target, ability);
+
+            // ADDED: Track ability usage for AfterAbilityUse conditions
+            character.OnAbilityUsed(ability.definition.abilityName, ability.definition.abilityType);
+
+            // Handle combo abilities - reset counter after activation
+            if (ability.definition.trigger == AbilityTrigger.OnCombo)
+            {
+                ability.ResetCombo();
+            }
+
+            return true;
         }
-
-        // Activate the ability
-        ability.definition.Activate(character, target, ability);
-
-        // Handle combo abilities - reset counter after activation
-        if (ability.definition.trigger == AbilityTrigger.OnCombo)
+        finally
         {
-            ability.ResetCombo();
+            // always end processing, even if there's an exception
+            character.EndAbilityProcessing(ability.definition.abilityName);
         }
-
-        return true;
     }
 
     /// <summary>

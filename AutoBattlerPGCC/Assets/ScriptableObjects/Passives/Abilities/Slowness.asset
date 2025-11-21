@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9460b0ba2df4bc4e97ad63940ce7b2f, type: 3}
-  m_Name: Ramping Bloodlust
+  m_Name: Slowness
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
-  abilityName: Ramping BloodLust
-  abilityIcon: {fileID: 694811781487403712, guid: c4573d6dfe8beb44ebcefa139d0c33eb, type: 3}
+  abilityName: Slowness
+  abilityIcon: {fileID: 2726740420715531847, guid: 8ad0275055bcaad439fd16a3a2be6596, type: 3}
   description: 
   abilityType: 0
-  trigger: 3
-  intervalTime: 0
-  cooldown: 0
+  trigger: 1
+  intervalTime: 5
+  cooldown: 5
   additionalCost: 1
   conditions: []
   effects:
-  - rid: 7871668095107203145
+  - rid: 7871668101356191828
   references:
     version: 2
     RefIds:
-    - rid: 7871668095107203145
+    - rid: 7871668101356191828
       type: {class: StatModifierEffect, ns: , asm: Assembly-CSharp}
       data:
-        modifierTarget: 0
+        modifierTarget: 1
         aoeRadius: 0
-        statToModify: 000000000100000002000000
-        modifierAmount: 10
-        duration: 999999
+        statToModify: 01000000
+        modifierAmount: -20
+        duration: 5
         scalesWithStat: 1
-        scalingStat: 0
+        scalingStat: 2
         scalingMultiplier: 0.2

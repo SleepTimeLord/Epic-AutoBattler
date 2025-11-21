@@ -164,6 +164,8 @@ public class CharacterManager : MonoBehaviour
             // move to dead pool and remove from active dictionaries
             deadAllyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveAllyCharacter(instanceID);
+            // check if character won or not
+            GameManager.Instance.CheckIfWinOrLose(deadAllyCharacters, characterType);
         }
         else
         {
@@ -185,6 +187,7 @@ public class CharacterManager : MonoBehaviour
 
             deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveEnemyCharacter(instanceID);
+            GameManager.Instance.CheckIfWinOrLose(deadAllyCharacters, characterType);
         }
     }
 

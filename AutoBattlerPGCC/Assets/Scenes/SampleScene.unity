@@ -2232,6 +2232,7 @@ GameObject:
   - component: {fileID: 2117045790}
   - component: {fileID: 2117045793}
   - component: {fileID: 2117045794}
+  - component: {fileID: 2117045795}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2254,8 +2255,8 @@ MonoBehaviour:
   createAction: {fileID: 6717257663641732102, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   spawnAction: {fileID: 2059071318678266246, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
   createEnemyAction: {fileID: -2411746689652773932, guid: 7fadf370e7f4bd44c8c913159e197fcc, type: 3}
-  characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  weaponDefinition: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
+  weaponDefinition: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}
   abilityDefinition:
   - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
   characterSpawn: {fileID: 674637779}
@@ -2343,6 +2344,36 @@ MonoBehaviour:
   enemyContainer: {fileID: 577031520}
   canvas: {fileID: 141747978}
   lerpSpeed: 5
+--- !u!114 &2117045795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117045789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6cbf307a16098408ef073e4a8a9a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerData:
+  - characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
+    weaponDefinition: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+    abilityDefinition:
+    - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
+  - characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
+    weaponDefinition: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}
+    abilityDefinition:
+    - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
+  enemyData:
+  - characterDefinition: {fileID: 11400000, guid: 7a145f394a4879b43a387f82e46e37bc, type: 2}
+    weaponDefinition: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+    abilityDefinition:
+    - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
+  - characterDefinition: {fileID: 11400000, guid: fb888313733dc4747adfe869cc9b016e, type: 2}
+    weaponDefinition: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
+    abilityDefinition:
+    - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
 --- !u!114 &486261798629358887
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 90
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -351,8 +351,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Post war knight who\u2019s lost his comrades. He will fight to keep everyone
-    else alive."
+  m_text: "A ranger who\u2019s fast and nimble with her work. She\u2019s extroverted
+    and very social with others."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -632,13 +632,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardSetter
-  characterDescriptionText: {fileID: 0}
-  uniqueSkillPlaceholder: {fileID: 0}
-  regularSkillPlaceholder: {fileID: 0}
-  characterCost: {fileID: 0}
-  characterHealth: {fileID: 0}
-  swordIcon: {fileID: 0}
-  instanceID: 
+  characterDescriptionText: {fileID: 2203321951719963582}
+  uniqueSkillPlaceholder: {fileID: 7789466256970948526}
+  regularSkillPlaceholder: {fileID: 5612431587986732331}
+  characterCost: {fileID: 3982022909877895498}
+  characterHealth: {fileID: 3709697109407904786}
+  swordIcon: {fileID: 9155195175800600398}
+  instanceID: 22b6d19f-4514-4209-8623-19123fc5bc80
 --- !u!114 &4931540732842512426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

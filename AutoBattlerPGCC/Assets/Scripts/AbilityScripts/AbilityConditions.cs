@@ -93,18 +93,53 @@ public class BuffCondition : AbilityCondition
 }
 
 /// <summary>
-/// Condition: Check if enough mana/energy available
+/// Condition: Check if a random chance succeeds
 /// </summary>
 [System.Serializable]
-public class ResourceCondition : AbilityCondition
+public class ChanceCondition : AbilityCondition
 {
-    [Tooltip("Amount of resource required")]
-    public int requiredAmount = 10;
+    [Tooltip("Chance to succeed (0-100)")]
+    [Range(0f, 100f)]
+    public float chance = 50f;
 
     public override bool IsMet(CharacterBehavior user, AbilityInstance abilityInstance)
     {
-        // TODO: Implement based on your resource system
-        // Example: return user.currentMana >= requiredAmount;
-        return true; // Placeholder
+        float roll = Random.Range(0f, 100f);
+        bool success = roll <= chance;
+        Debug.Log($"[ChanceCondition] Rolled {roll:F1}% vs {chance}% - {(success ? "SUCCESS" : "FAILED")}");
+        return success;
+    }
+}
+
+[System.Serializable]
+public class AfterAbilityUseCondition : AbilityCondition
+{
+    [Tooltip("Must trigger within this many seconds after using ANY OTHER ability")]
+    public float timeWindow = 2f;
+
+    [Tooltip("Only trigger after ACTIVE abilities (ignores passive)")]
+    public bool onlyActiveAbilities = true;
+
+    public override bool IsMet(CharacterBehavior user, AbilityInstance abilityInstance)
+    {
+        // Get the last ability that was used
+        string lastAbilityUsed = user.GetLastAbilityUsed();
+        float timeSinceLastUse = user.GetTimeSinceLastAbility();
+
+        // CRITICAL: Prevent triggering on itself
+        if (lastAbilityUsed == abilityInstance.definition.abilityName)
+        {
+            return false;
+        }
+
+        // Check if within time window
+        bool withinWindow = timeSinceLastUse >= 0f && timeSinceLastUse <= timeWindow;
+
+        if (withinWindow)
+        {
+            Debug.Log($"[AfterAbilityUseCondition] '{lastAbilityUsed}' used {timeSinceLastUse:F2}s ago - TRIGGERING");
+        }
+
+        return withinWindow;
     }
 }

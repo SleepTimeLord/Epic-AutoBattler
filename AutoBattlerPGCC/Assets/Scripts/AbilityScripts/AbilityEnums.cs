@@ -12,7 +12,9 @@ public enum AbilityTrigger
     OnInterval, // Every X seconds
     OnCombo, // On specific combo count (3rd hit, 5th hit, etc.)
     OnHealthThreshold, // When health reaches certain %
-    OnCooldownReady // When ability comes off cooldown
+    OnCooldownReady, // When ability comes off cooldown
+    OnDodge,
+    OnUseAbility
 }
 
 // defines if ability is passive or active
