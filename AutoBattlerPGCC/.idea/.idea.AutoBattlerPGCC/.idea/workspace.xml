@@ -5,20 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ceb331c-86c1-4dad-9bd0-0b818f1eed60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogLine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/AllEverything.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/AllEverything.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/CardPicker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/CardPicker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/SkillPicker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/SkillPicker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/WeaponPicker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DeckBuilding/WeaponPicker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryScript.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryScript.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DeckBuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DeckBuildingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/ArisCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/ArisCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/LilithCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/LilithCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/SichiCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/SichiCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/TeoCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Characters/CharacterCard/TeoCard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/Charm_UniqueSkill.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/Charm_UniqueSkill.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/Charm_UniqueSkill.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/Charm_UniqueSkill.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/HotBurner_UniqueSkill.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/HotBurner_UniqueSkill.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/HotBurner_UniqueSkill.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Passives/Design/HotBurner_UniqueSkill.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoBattlerPGCC.sln" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBattlerPGCC.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NavMeshPlus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NavMeshPlus.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NavMeshPlusEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NavMeshPlusEditor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,6 +60,20 @@
     &quot;accountId&quot;: &quot;9b11a274-f904-465e-a9b1-9c4097f463e7&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/CardScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/DialogScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterCreate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CreateAndSpawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogCharacter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogs/StoryScripts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RandomScripts/RandomScript.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -44,9 +83,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.62929064&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Darsh__Ranch&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -54,6 +97,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -126,6 +170,18 @@
       <workItem from="1761590181994" duration="161000" />
       <workItem from="1761590388994" duration="4406000" />
       <workItem from="1761930244990" duration="4365000" />
+      <workItem from="1761942496066" duration="4356000" />
+      <workItem from="1762194731097" duration="7454000" />
+      <workItem from="1762634702167" duration="4007000" />
+      <workItem from="1762783327499" duration="5548000" />
+      <workItem from="1762790860696" duration="488000" />
+      <workItem from="1762959621684" duration="23446000" />
+      <workItem from="1763324699949" duration="224000" />
+      <workItem from="1763501112951" duration="91000" />
+      <workItem from="1763502326226" duration="4079000" />
+      <workItem from="1763561780609" duration="52196000" />
+      <workItem from="1763669095437" duration="5992000" />
+      <workItem from="1763701435275" duration="8515000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2998bd39f1a9a4594bd1692351ae8b, type: 3}
+  m_Name: ClubPresident0
+  m_EditorClassIdentifier: Assembly-CSharp::DialogCharacter
+  dialogLines:
+  - dialogLine: "\u201CHey! I haven\u2019t seen you around before, are you interested
+      in joining the ICB Club?\""
+    sceneIndex: 4
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: "\u201CAh yes, Interdimensional Card Battle, it\u2019s most commonly
+      called ICB amongst fans.\""
+    sceneIndex: 6
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: '"I assume you must be new to the game?"'
+    sceneIndex: 7
+    replies: []
+    utilizesScripts: 0
+  - dialogLine: "\u201CWell why not allow me to get you started!\u201D"
+    sceneIndex: 9
+    replies:
+    - goToLineIndex: 2
+      replyText: Sure!
+    - goToLineIndex: 1
+      replyText: Actually Nah.
+    utilizesScripts: 0
+  - dialogLine: '"Oh... Okay..."'
+    sceneIndex: 10
+    replies: []
+    utilizesScripts: 1
+  - dialogLine: '"Great! Here are the basics!"'
+    sceneIndex: 11
+    replies: []
+    utilizesScripts: 1
+  characterName: Club President
+  characterImage: {fileID: -8884037266988829745, guid: 67275866a94ce89479e22bbadbec043b, type: 3}
+  alignment: 0
+  scene: 0
+  characterTalking: 0
+  dialogIndex: 0
