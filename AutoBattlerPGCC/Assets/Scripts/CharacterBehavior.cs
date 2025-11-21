@@ -473,7 +473,6 @@ public class CharacterBehavior : MonoBehaviour
     public void ApplyNextAttackBonus(int bonusDamage)
     {
         nextAttackBonusDamage += bonusDamage;
-        Debug.Log($"[NextAttackBonus] {characterName} next attack will deal +{nextAttackBonusDamage} damage");
     }
 
     /// <summary>

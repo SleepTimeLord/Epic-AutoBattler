@@ -287,7 +287,6 @@ public class StatModifierEffect : AbilityEffect
         // Check if target still exists (might have died)
         if (target == null || target.gameObject == null)
         {
-            Debug.Log($"[StatModifierEffect] Target no longer exists, skipping modifier removal");
             yield break;
         }
 

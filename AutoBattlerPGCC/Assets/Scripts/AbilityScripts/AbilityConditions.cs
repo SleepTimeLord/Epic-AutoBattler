@@ -106,7 +106,6 @@ public class ChanceCondition : AbilityCondition
     {
         float roll = Random.Range(0f, 100f);
         bool success = roll <= chance;
-        Debug.Log($"[ChanceCondition] Rolled {roll:F1}% vs {chance}% - {(success ? "SUCCESS" : "FAILED")}");
         return success;
     }
 }

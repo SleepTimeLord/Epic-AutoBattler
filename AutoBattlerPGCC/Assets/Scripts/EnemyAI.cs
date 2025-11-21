@@ -1,25 +1,40 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        SpawnEnemy();
-    }
+    public Transform enemyCardContainer;
 
-    void SpawnEnemy() 
+    public IEnumerator SpawnEnemyRoutine()
     {
-        // gets card from deck and summons them
-        CardSetter card = SummonManager.Instance.GetCardFromDeck(1, CharacterType.Enemy);
-        if (card != null)
+        CardSetter card = null;
+
+        // keep trying until we get a valid card
+        while (card == null)
         {
-            StartCoroutine(SummonManager.Instance.SummonEnemyCharacter(card.instanceID));
+            // 1. Calculate deck size, excluding the placeholder card.
+            // Assuming the placeholder is always the last element (index: deck.Count - 1).
+            int deckSizeWithoutPlaceholder = enemyCardContainer.childCount - 1;
+
+            if (deckSizeWithoutPlaceholder <= 0)
+            {
+                Debug.LogWarning("Enemy deck is empty or contains only the placeholder, cannot spawn a valid enemy.");
+                yield break;
+            }
+
+            int randomIndex = UnityEngine.Random.Range(0, deckSizeWithoutPlaceholder);
+
+            card = SummonManager.Instance.GetCardFromDeck(randomIndex, CharacterType.Enemy);
+
+            if (card == null)
+            {
+                Debug.Log("Failed to get card (unexpected), retrying...");
+                yield return null; 
+            }
         }
-        else
-        {
-            Debug.Log("cant find card");
-        }
+
+        // once we have a valid card
+        yield return StartCoroutine(SummonManager.Instance.SummonEnemyCharacter(card.instanceID));
     }
 }

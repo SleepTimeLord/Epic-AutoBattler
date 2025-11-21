@@ -362,7 +362,7 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Lilith
   characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
-  instanceID: f1765a30-83cf-4362-8406-5138ce4f67ce
+  instanceID: 80e3620f-9b72-4385-94bc-926943dcdc63
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
   characterType: 0
@@ -370,9 +370,9 @@ MonoBehaviour:
   health: 240
   speed: 100
   strength: 30
-  cost: 7
+  cost: 6
   passiveAbility:
-  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
+  - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
   - {fileID: 11400000, guid: 193e05b2c6213994fb927665a2e42759, type: 2}
   activeAbility: []
   weapon: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}

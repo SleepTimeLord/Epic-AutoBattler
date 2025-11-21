@@ -659,16 +659,16 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Aris
   characterDefinition: {fileID: 11400000, guid: 7a145f394a4879b43a387f82e46e37bc, type: 2}
-  instanceID: 6063c337-c066-455b-9256-5700e16e6d0a
+  instanceID: b32d29a0-082d-47d8-82c5-896d5279079f
   description: ' A pyromaniac that really likes to mess with people for fun.'
   characterType: 1
   intelligence: 80
   health: 240
   speed: 40
   strength: 40
-  cost: 4
+  cost: 5
   passiveAbility:
-  - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
+  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
   - {fileID: 11400000, guid: d4ce97576556369498a70290bc6235d0, type: 2}
   activeAbility: []
   weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}

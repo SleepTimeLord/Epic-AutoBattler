@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public List<PlayerData> playerData = new List<PlayerData>();
     public List<EnemyData> enemyData = new List<EnemyData>();
 
+    public EnemyAI enemyAI;
+
     private void Awake()
     {
         if (Instance == null)
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
         {
             CreateCharacter(e.characterDefinition, e.weaponDefinition, e.abilityDefinition, CharacterType.Enemy);
         }
+
+        StartCoroutine(enemyAI.SpawnEnemyRoutine());
     }
 
     private void CreateCharacter(CharacterDefinition cd, WeaponDefinition wd, AbilityDefinition[] ad, CharacterType ct) 

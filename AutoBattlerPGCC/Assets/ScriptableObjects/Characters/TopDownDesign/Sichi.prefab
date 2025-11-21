@@ -671,7 +671,7 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Sichi
   characterDefinition: {fileID: 11400000, guid: fb888313733dc4747adfe869cc9b016e, type: 2}
-  instanceID: 7523cd13-fa72-4e74-94b5-eb38ce958ccd
+  instanceID: 1423ad63-6b61-45b4-ba09-6973f95b59fc
   description: "A ranger who\u2019s fast and nimble with her work. She\u2019s extroverted
     and very social with others."
   characterType: 1
@@ -684,7 +684,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
   - {fileID: 11400000, guid: a97260dc174f9b445b886648708ae9d9, type: 2}
   activeAbility: []
-  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}

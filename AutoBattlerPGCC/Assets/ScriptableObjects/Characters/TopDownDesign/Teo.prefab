@@ -523,12 +523,12 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Teo
   characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  instanceID: bead28c3-91a6-4eb6-bff9-65d264981a97
+  instanceID: c5047d16-d814-43b1-9f04-863aa8d94f0c
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
   intelligence: 10
-  health: 290
+  health: 212
   speed: 30
   strength: 70
   cost: 5

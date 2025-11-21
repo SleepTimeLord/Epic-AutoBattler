@@ -17,6 +17,8 @@ public class CharacterManager : MonoBehaviour
     public GameObject cardContainer;
     public GameObject enemyCardContainer;
 
+    public EnemyAI enemyAI;
+
     private Dictionary<string, CharacterCreate> allyCharacters = new Dictionary<string, CharacterCreate>();
     private Dictionary<string, CharacterCreate> enemyCharacters = new Dictionary<string, CharacterCreate>();
 
@@ -187,7 +189,9 @@ public class CharacterManager : MonoBehaviour
 
             deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveEnemyCharacter(instanceID);
-            GameManager.Instance.CheckIfWinOrLose(deadAllyCharacters, characterType);
+            GameManager.Instance.CheckIfWinOrLose(deadEnemyCharacters, characterType);
+            // spawns new enemy when done
+            StartCoroutine(enemyAI.SpawnEnemyRoutine());
         }
     }
 
