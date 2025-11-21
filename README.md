@@ -17,3 +17,5 @@ A few sneek peeks at our concept arts are below!
 ![Scene 1 initial concept](<img width="789" height="369" alt="image" src="https://github.com/user-attachments/assets/25a6ddd9-5e4f-489e-b5aa-ddaf61d1369f" />)
 
 We used a couple Libraries, from UnityLib to BlackBoard and even *almost* Ink! And the Language we used for programming was C# (CSharp).
+
+If you would like to play our game there is the offical link to play: https://sleeptime.itch.io/interdimensional-card-battle
