@@ -665,27 +665,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   agent: {fileID: 0}
-  healthBar: {fileID: 6322743981406564635}
   blackboardAgent: {fileID: 0}
+  healthBar: {fileID: 6322743981406564635}
   rb: {fileID: 0}
   initialHealth: 0
   characterName: Sichi
   characterDefinition: {fileID: 11400000, guid: fb888313733dc4747adfe869cc9b016e, type: 2}
-  instanceID: af068d88-98f2-4fa8-9d81-56135f5c20fe
+  instanceID: 7523cd13-fa72-4e74-94b5-eb38ce958ccd
   description: "A ranger who\u2019s fast and nimble with her work. She\u2019s extroverted
     and very social with others."
   characterType: 1
   intelligence: 40
-  health: 50
+  health: 250
   speed: 70
   strength: 40
-  cost: 7
+  cost: 5
   passiveAbility:
-  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
-  - {fileID: 11400000, guid: a12d79a37af85ed46a85d196506c7720, type: 2}
+  - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
+  - {fileID: 11400000, guid: a97260dc174f9b445b886648708ae9d9, type: 2}
   activeAbility: []
-  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
+  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
@@ -696,6 +695,9 @@ MonoBehaviour:
   maxKnockbackTime: 0.5
   forceMultiplierSet: 20
   tookDamage: 0
+  baseDodgeChance: 5
+  dodgePerSpeed: 0.5
+  maxDodgeChance: 75
 --- !u!50 &4723325209843813337
 Rigidbody2D:
   serializedVersion: 5

@@ -18,10 +18,10 @@ MonoBehaviour:
     and very social with others."
   characterTopdown: {fileID: 8151727191929281798, guid: 0577aa571e3e02a49aa445d9589b7c7f, type: 3}
   intelligence: 40
-  health: 50
+  health: 250
   speed: 70
   strength: 40
   cost: 1
   uniqueAbilities:
-  - {fileID: 11400000, guid: a12d79a37af85ed46a85d196506c7720, type: 2}
+  - {fileID: 11400000, guid: a97260dc174f9b445b886648708ae9d9, type: 2}
   characterCard: {fileID: 8495688329727377623, guid: 6d67554a00b1af54a8664211a33ef667, type: 3}

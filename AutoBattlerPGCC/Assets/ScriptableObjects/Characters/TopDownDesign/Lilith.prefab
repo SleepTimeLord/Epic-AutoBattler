@@ -356,27 +356,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   agent: {fileID: 0}
-  healthBar: {fileID: 8927771314109614899}
   blackboardAgent: {fileID: 0}
+  healthBar: {fileID: 8927771314109614899}
   rb: {fileID: 0}
   initialHealth: 0
   characterName: Lilith
   characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
-  instanceID: 9b1948f8-4eb1-4464-a135-c7cd828e298b
+  instanceID: f1765a30-83cf-4362-8406-5138ce4f67ce
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
   characterType: 0
   intelligence: 30
-  health: 40
+  health: 240
   speed: 100
   strength: 30
   cost: 7
   passiveAbility:
-  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
-  activeAbility:
-  - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
-  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
+  - {fileID: 11400000, guid: 193e05b2c6213994fb927665a2e42759, type: 2}
+  activeAbility: []
+  weapon: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
@@ -387,6 +386,9 @@ MonoBehaviour:
   maxKnockbackTime: 0.5
   forceMultiplierSet: 20
   tookDamage: 0
+  baseDodgeChance: 5
+  dodgePerSpeed: 0.5
+  maxDodgeChance: 75
 --- !u!58 &7341832557853393891
 CircleCollider2D:
   m_ObjectHideFlags: 0

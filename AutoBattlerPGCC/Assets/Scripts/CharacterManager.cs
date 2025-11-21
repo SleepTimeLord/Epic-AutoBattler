@@ -164,6 +164,8 @@ public class CharacterManager : MonoBehaviour
             // move to dead pool and remove from active dictionaries
             deadAllyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveAllyCharacter(instanceID);
+            // check if character won or not
+            GameManager.Instance.CheckIfWinOrLose(deadAllyCharacters, characterType);
         }
         else
         {
@@ -185,6 +187,7 @@ public class CharacterManager : MonoBehaviour
 
             deadEnemyCharacters[instanceID] = GetCharacter(instanceID, characterType);
             RemoveEnemyCharacter(instanceID);
+            GameManager.Instance.CheckIfWinOrLose(deadAllyCharacters, characterType);
         }
     }
 
@@ -383,6 +386,9 @@ public class CharacterManager : MonoBehaviour
     // Sets character abilities include unique ability
     private void SetCharacterAbilities(CharacterBehavior characterBehavior, CharacterCreate character)
     {
+        // clear all abilities 
+        characterBehavior.activeAbility.Clear();
+        characterBehavior.passiveAbility.Clear();
         // set abilities
         if (character.abilities != null)
         {

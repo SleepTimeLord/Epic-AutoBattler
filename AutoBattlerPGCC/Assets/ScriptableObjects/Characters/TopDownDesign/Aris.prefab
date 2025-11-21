@@ -653,26 +653,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterBehavior
   agent: {fileID: 0}
-  healthBar: {fileID: 3691624394243641687}
   blackboardAgent: {fileID: 0}
+  healthBar: {fileID: 3691624394243641687}
   rb: {fileID: 0}
   initialHealth: 0
   characterName: Aris
   characterDefinition: {fileID: 11400000, guid: 7a145f394a4879b43a387f82e46e37bc, type: 2}
-  instanceID: a22744bd-e346-438a-9aa1-d08bd69c5683
+  instanceID: 6063c337-c066-455b-9256-5700e16e6d0a
   description: ' A pyromaniac that really likes to mess with people for fun.'
-  characterType: 0
+  characterType: 1
   intelligence: 80
-  health: 40
+  health: 240
   speed: 40
   strength: 40
-  cost: 6
+  cost: 4
   passiveAbility:
-  - {fileID: 11400000, guid: 4b7c9ee27aa917f408c61db39ccb1b64, type: 2}
-  - {fileID: 11400000, guid: 2e8422c71fa44084899dcf80ecc608a5, type: 2}
-  activeAbility:
-  - {fileID: 11400000, guid: 39ae4777f0a00f4469fb92385850f6e8, type: 2}
-  weapon: {fileID: 11400000, guid: 0c4ee11d965432b45bef2cb4ce5e60ac, type: 2}
+  - {fileID: 11400000, guid: 6c7c1076879609143bd40eaeac2e189d, type: 2}
+  - {fileID: 11400000, guid: d4ce97576556369498a70290bc6235d0, type: 2}
+  activeAbility: []
+  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}
@@ -683,6 +682,9 @@ MonoBehaviour:
   maxKnockbackTime: 0.5
   forceMultiplierSet: 20
   tookDamage: 0
+  baseDodgeChance: 5
+  dodgePerSpeed: 0.5
+  maxDodgeChance: 75
 --- !u!50 &2476183427611069693
 Rigidbody2D:
   serializedVersion: 5

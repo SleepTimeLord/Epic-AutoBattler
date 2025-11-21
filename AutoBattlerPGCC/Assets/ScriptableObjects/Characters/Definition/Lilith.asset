@@ -17,12 +17,11 @@ MonoBehaviour:
   description: "Introverted assassin that likes to work alone. She\u2019ll work with
     others if required, but would rather do her own thing.  "
   characterTopdown: {fileID: 6008052734616835099, guid: bdd80df4ed4402f478c27ed855297db1, type: 3}
-  characterSprite: {fileID: 1908110545521356292, guid: ba36fad12e04dcf49b5fd3e560dd5efb, type: 3}
   intelligence: 30
-  health: 40
+  health: 240
   speed: 100
   strength: 30
   cost: 1
   uniqueAbilities:
-  - {fileID: 11400000, guid: f199aa3d6ef36b04f827bc39bc380182, type: 2}
+  - {fileID: 11400000, guid: 193e05b2c6213994fb927665a2e42759, type: 2}
   characterCard: {fileID: 8480139443515533786, guid: 22884ce34008c7c4f9569df3a0585672, type: 3}
