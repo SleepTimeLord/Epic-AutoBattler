@@ -674,7 +674,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1429292092555577601}
-  - component: {fileID: 7504637887244889026}
   - component: {fileID: 1166206384315606338}
   - component: {fileID: 5849293174139247034}
   - component: {fileID: 5691842677743093482}
@@ -711,25 +710,6 @@ RectTransform:
   m_AnchoredPosition: {x: -990.63, y: -460.6449}
   m_SizeDelta: {x: 170, y: 254.07764}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7504637887244889026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8480139443515533786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  characterDescriptionText: {fileID: 4467256178446593898}
-  uniqueSkillPlaceholder: {fileID: 4699253993933341949}
-  regularSkillPlaceholder: {fileID: 5730084510202968362}
-  characterCost: {fileID: 2406057198921148097}
-  characterHealth: {fileID: 483017521956728309}
-  swordIcon: {fileID: 7287556781723111012}
-  instanceID: eb44a549-6926-4399-8d16-e7eb0148f4a8
 --- !u!114 &1166206384315606338
 MonoBehaviour:
   m_ObjectHideFlags: 0
