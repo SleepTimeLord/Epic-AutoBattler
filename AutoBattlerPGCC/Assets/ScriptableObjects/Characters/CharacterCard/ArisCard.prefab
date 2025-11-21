@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7654660360329275480}
   - component: {fileID: 5771628455860052939}
   - component: {fileID: 8330843070678404577}
+  - component: {fileID: 7399881544489863287}
   m_Layer: 5
   m_Name: ArisCard
   m_TagString: Untagged
@@ -103,6 +104,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7399881544489863287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306591431088467977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardSetter
+  characterDescriptionText: {fileID: 2282338153204840820}
+  uniqueSkillPlaceholder: {fileID: 5783418214024805378}
+  regularSkillPlaceholder: {fileID: 4377283865294493926}
+  characterCost: {fileID: 483882383131528077}
+  characterHealth: {fileID: 7507590652160759699}
+  swordIcon: {fileID: 441110120701627594}
+  instanceID: 
 --- !u!1 &1423904298042459707
 GameObject:
   m_ObjectHideFlags: 0

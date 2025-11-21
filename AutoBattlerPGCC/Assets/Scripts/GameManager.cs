@@ -67,11 +67,11 @@ public class GameManager : MonoBehaviour
 
     public void CheckIfWinOrLose(Dictionary<string, CharacterCreate> deadCharacters, CharacterType characterType) 
     {
-        if (deadCharacters.Count == playerData.Count || characterType == CharacterType.Ally)
+        if (deadCharacters.Count == playerData.Count && characterType == CharacterType.Ally)
         {
             Debug.Log("You lose");
         }
-        else if (deadCharacters.Count == playerData.Count || characterType == CharacterType.Enemy) 
+        else if (deadCharacters.Count == playerData.Count && characterType == CharacterType.Enemy) 
         {
             Debug.Log("You Win");
         }

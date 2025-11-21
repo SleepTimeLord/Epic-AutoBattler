@@ -309,7 +309,6 @@ public class StatModifierEffect : AbilityEffect
         }
 
         string modType = finalModifier >= 0 ? "buff" : "debuff";
-        Debug.Log($"[StatModifierEffect] {target.characterName} lost {modType} on {string.Join(", ", statToModify)}");
     }
 }
 
@@ -626,7 +625,5 @@ public class ParticleEffect : AbilityEffect
                 Object.Destroy(particle, ps.main.duration + ps.main.startLifetime.constantMax);
             }
         }
-
-        Debug.Log($"[ParticleEffect] Spawned {particlePrefab.name} on {spawnTransform.name}");
     }
 }

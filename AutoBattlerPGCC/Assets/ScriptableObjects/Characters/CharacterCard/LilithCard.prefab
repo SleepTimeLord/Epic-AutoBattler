@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 1166206384315606338}
   - component: {fileID: 5849293174139247034}
   - component: {fileID: 5691842677743093482}
+  - component: {fileID: -6280588072457982369}
   m_Layer: 5
   m_Name: LilithCard
   m_TagString: Untagged
@@ -768,6 +769,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-6280588072457982369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480139443515533786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardSetter
+  characterDescriptionText: {fileID: 4467256178446593898}
+  uniqueSkillPlaceholder: {fileID: 4699253993933341949}
+  regularSkillPlaceholder: {fileID: 5730084510202968362}
+  characterCost: {fileID: 2406057198921148097}
+  characterHealth: {fileID: 483017521956728309}
+  swordIcon: {fileID: 7287556781723111012}
+  instanceID: 
 --- !u!1 &8675717534257602711
 GameObject:
   m_ObjectHideFlags: 0

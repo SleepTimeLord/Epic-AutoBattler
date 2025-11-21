@@ -134,11 +134,6 @@ public class AfterAbilityUseCondition : AbilityCondition
         // Check if within time window
         bool withinWindow = timeSinceLastUse >= 0f && timeSinceLastUse <= timeWindow;
 
-        if (withinWindow)
-        {
-            Debug.Log($"[AfterAbilityUseCondition] '{lastAbilityUsed}' used {timeSinceLastUse:F2}s ago - TRIGGERING");
-        }
-
         return withinWindow;
     }
 }

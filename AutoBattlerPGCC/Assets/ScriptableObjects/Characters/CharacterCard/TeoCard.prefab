@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1128326195614913264}
   - component: {fileID: 630814491502169240}
   - component: {fileID: 5797180654457816544}
+  - component: {fileID: 4241545987159028492}
   m_Layer: 5
   m_Name: TeoCard
   m_TagString: Untagged
@@ -179,6 +180,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4241545987159028492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014823515255968091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619ee0b43fb00c40acd83ccc7f2bb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardSetter
+  characterDescriptionText: {fileID: 3977685571411175752}
+  uniqueSkillPlaceholder: {fileID: 3939730914569785584}
+  regularSkillPlaceholder: {fileID: 3200300639806931232}
+  characterCost: {fileID: 6676918187255916552}
+  characterHealth: {fileID: 7575670391078274862}
+  swordIcon: {fileID: 722805181674980298}
+  instanceID: 
 --- !u!1 &3185128926128867418
 GameObject:
   m_ObjectHideFlags: 0

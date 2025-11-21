@@ -391,7 +391,6 @@ public class CharacterBehavior : MonoBehaviour
     private IEnumerator InvisibilityRoutine(float duration)
     {
         isInvisible = true;
-        Debug.Log($"[Invisibility] {characterName} is now invisible for {duration}s");
 
         // Collect all sprite renderers (self + children)
         SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
@@ -428,7 +427,6 @@ public class CharacterBehavior : MonoBehaviour
             Destroy(currentInvisParticle);
 
         isInvisible = false;
-        Debug.Log($"[Invisibility] {characterName} is now visible");
     }
 
     /// <summary>

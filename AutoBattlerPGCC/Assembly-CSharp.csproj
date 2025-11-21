@@ -64,18 +64,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CreateAndSpawn.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogManager.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\KnockbackCharacterAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\State.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\StoryScripts.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityInstance.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DeckBuilding\AllEverything.cs" />
     <Compile Include="Assets\Scripts\CardSetter.cs" />
     <Compile Include="Assets\Scripts\GoToTarget.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityConditions.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DeckBuilding\SkillPicker.cs" />
     <Compile Include="Assets\Scripts\SummonManager.cs" />
     <Compile Include="Assets\InputSystem\Input.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\currentState.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogView.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\InWeaponRangeAction.cs" />
+    <Compile Include="Assets\Scripts\RandomScripts\RandomScript.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogCharacter.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityEnums.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\ChaseEnemyAction.cs" />
@@ -83,12 +89,13 @@
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityDefinition.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CharacterAttackAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\LookAtTargetAction.cs" />
+    <Compile Include="Assets\Scripts\InventoryScript.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\IsAgentEnabledAction.cs" />
     <Compile Include="Assets\Scripts\RectTransformExtensions.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTakeDamageAction.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbiilityManager.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\DialogLine.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DeckBuilding\WeaponPicker.cs" />
     <Compile Include="Assets\Scripts\SlashDefinition.cs" />
     <Compile Include="Assets\Scripts\AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTargetAction.cs" />
@@ -96,6 +103,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityEffect.cs" />
     <Compile Include="Assets\Scripts\Bar.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DeckBuilding\CardPicker.cs" />
     <Compile Include="Assets\Scripts\HitCharacter.cs" />
     <Compile Include="Assets\Scripts\CharacterCreate.cs" />
   </ItemGroup>
