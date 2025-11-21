@@ -76,15 +76,10 @@
     <Compile Include="Assets\Scripts\BehaviorScripts\currentState.cs" />
     <Compile Include="Assets\Scripts\CharacterDefinition.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\InWeaponRangeAction.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogCharacter.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityEnums.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\ChaseEnemyAction.cs" />
     <Compile Include="Assets\Scripts\CharacterBehavior.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Dialogs\DialogCharacter.cs" />
-    <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\DialogLine.cs" />
-    <Compile Include="Assets\Scripts\SetCard.cs" />
-=======
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityDefinition.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CharacterAttackAction.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\LookAtTargetAction.cs" />
@@ -93,10 +88,10 @@
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTakeDamageAction.cs" />
     <Compile Include="Assets\Scripts\WeaponDefinition.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbiilityManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DialogLine.cs" />
     <Compile Include="Assets\Scripts\SlashDefinition.cs" />
     <Compile Include="Assets\Scripts\AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\BehaviorScripts\CheckIfTargetAction.cs" />
->>>>>>> John-Banch
     <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\AbilityScripts\AbilityEffect.cs" />
