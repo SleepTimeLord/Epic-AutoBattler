@@ -30,4 +30,5 @@ Introduction Scene initial concept
 
 We used a couple Libraries, from UnityLib to BlackBoard and even *almost* Ink! And the Language we used for programming was C# (CSharp).
 
+(Before Playing Please Read Discription Of Game In The Link)
 If you would like to play our game there is the offical link to play (Recommended To Play Fullscreen): https://sleeptime.itch.io/interdimensional-card-battle
