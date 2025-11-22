@@ -14,12 +14,17 @@ Starting off we first made a lovely little concept art of what we believed the b
 A few sneek peeks at our concept arts are below!
 
 Concept Art of the battle UI
+
 <img width="636" height="838" alt="image" src="https://github.com/user-attachments/assets/82a5a6dc-b09b-48b0-b7ab-ba11b5b61f80" />
 
 Two character concept sketches
-<img width="393" height="1126" alt="image" src="https://github.com/user-attachments/assets/948ea0ab-0d8e-425d-b675-d3b53cf4c429" />
+
+<img width="310" height="376" alt="image" src="https://github.com/user-attachments/assets/176333f5-b009-4467-895a-e94a99b2b3e8" />
+
+<img width="462" height="460" alt="image" src="https://github.com/user-attachments/assets/cdd726a6-b0c3-4925-9fd2-d98bce7d85eb" />
 
 Introduction Scene initial concept
+
 <img width="789" height="369" alt="image" src="https://github.com/user-attachments/assets/25a6ddd9-5e4f-489e-b5aa-ddaf61d1369f" />
 
 
