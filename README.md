@@ -1,7 +1,7 @@
 # Interdimentional Card Battle
 ## Welcome to our PGCC 2025 CODE Club Ignition Hackathon Submission!
 ### Team Members
-### John B. - Lead Programmer
+### John B. - Lead Programmer And Project Manager
 ### Evalani - Lead Artist
 ### Adarsh P. K. - Assistant Programmer And Artist
 
@@ -30,4 +30,4 @@ Introduction Scene initial concept
 
 We used a couple Libraries, from UnityLib to BlackBoard and even *almost* Ink! And the Language we used for programming was C# (CSharp).
 
-If you would like to play our game there is the offical link to play: https://sleeptime.itch.io/interdimensional-card-battle
+If you would like to play our game there is the offical link to play (Recommended To Play Fullscreen): https://sleeptime.itch.io/interdimensional-card-battle
