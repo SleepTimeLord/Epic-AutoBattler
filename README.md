@@ -12,9 +12,12 @@ Before we talk about more, please have a look at our [designs and plans for this
 Starting off we first made a lovely little concept art of what we believed the battling area would be now. Later on we met up more than weekly to talk about the project and plan, actually, since all of us had some kind of artistic background we could easily communicate with each other in the relation fields and could bounce from one and other incase we needed any help when it came to art.
 
 A few sneek peeks at our concept arts are below!
-![Concept Art of an areana](<img width="636" height="838" alt="image" src="https://github.com/user-attachments/assets/82a5a6dc-b09b-48b0-b7ab-ba11b5b61f80" />)
-![2 depictions of character concept sketches](<img width="393" height="1126" alt="image" src="https://github.com/user-attachments/assets/948ea0ab-0d8e-425d-b675-d3b53cf4c429" />)
-![Scene 1 initial concept](<img width="789" height="369" alt="image" src="https://github.com/user-attachments/assets/25a6ddd9-5e4f-489e-b5aa-ddaf61d1369f" />)
+![Concept Art of an areana](<img width="636" height="838" alt="image" src="https://github.com/user-attachments/assets/82a5a6dc-b09b-48b0-b7ab-ba11b5b61f80" />
+)
+![2 depictions of character concept sketches](<img width="393" height="1126" alt="image" src="https://github.com/user-attachments/assets/948ea0ab-0d8e-425d-b675-d3b53cf4c429" />
+)
+![Scene 1 initial concept](<img width="789" height="369" alt="image" src="https://github.com/user-attachments/assets/25a6ddd9-5e4f-489e-b5aa-ddaf61d1369f" />
+)
 
 We used a couple Libraries, from UnityLib to BlackBoard and even *almost* Ink! And the Language we used for programming was C# (CSharp).
 
