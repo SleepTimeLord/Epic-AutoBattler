@@ -6,20 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8ceb331c-86c1-4dad-9bd0-0b818f1eed60" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoBattlerPGCC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/DialogManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogs/StoryScripts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogs/StoryScripts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RandomScripts/RandomScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RandomScripts/RandomScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoBattlerPGCC.sln" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBattlerPGCC.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MerryYellow.CodeAssist.Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MerryYellow.CodeAssist.Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NavMeshPlus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NavMeshPlus.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NavMeshPlusEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NavMeshPlusEditor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +156,7 @@
       <workItem from="1763561780609" duration="52196000" />
       <workItem from="1763669095437" duration="5992000" />
       <workItem from="1763701435275" duration="8515000" />
-      <workItem from="1763995811109" duration="5397000" />
+      <workItem from="1763995811109" duration="7536000" />
     </task>
     <servers />
   </component>

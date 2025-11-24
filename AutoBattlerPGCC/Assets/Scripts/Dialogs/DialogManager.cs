@@ -51,6 +51,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     private float typingSpeed = 25f;
     private string dialogText;
+    private DialogCharacter previousPersonTalking;
     public static DialogManager Instance { get; private set; }
     public bool isTyping { get; private set; }
     public bool isOpen
@@ -101,6 +102,11 @@ public class DialogManager : MonoBehaviour
         Debug.Log($"{sceneIndex} scene index-----before------");
         sceneIndex += nextLines;
         Debug.Log($"{sceneIndex} scene index----after-----");
+
+        if (sceneIndex > 0)
+        {
+            previousPersonTalking = personTalking;
+        }
         
         personTalking = dialogView.scenes[scenesListIndex].sceneCharacterIndex[sceneIndex];
         
@@ -118,21 +124,26 @@ public class DialogManager : MonoBehaviour
                 Debug.Log($"{personTalking.characterName} doesn't have a Character Image!");
             //}
         }
-        if (personTalking.alignment.Equals(DialogCharacter.eAlignment.LEFT))
-        {
+        // if (personTalking.alignment.Equals(DialogCharacter.eAlignment.LEFT))
+        // {
             personOne.GetComponent<Image>().sprite = personTalking.characterImage;
             personOneNameplate.SetActive(true);
             personOneName.text = personTalking.characterName;
             personOne.SetActive(true);
-        }
-        else if (personTalking.alignment.Equals(DialogCharacter.eAlignment.RIGHT))
-        {
-            personTwo.GetComponent<Image>().sprite = personTalking.characterImage;
-            personTwoName.text = personTalking.characterName;
-            personTwoNameplate.SetActive(true);
-            personTwo.SetActive(true);
-        }
+        // }
+        // else if (personTalking.alignment.Equals(DialogCharacter.eAlignment.RIGHT))
+        // {
+        //     personTwo.GetComponent<Image>().sprite = personTalking.characterImage;
+        //     personTwoName.text = personTalking.characterName;
+        //     personTwoNameplate.SetActive(true);
+        //     personTwo.SetActive(true);
+        // }
+        personTwo.SetActive(false);
         if (personTalking.characterName.Equals("User"))
+        {
+            personOne.SetActive(false);
+        }
+        else
         {
             personTwo.SetActive(false);
         }
