@@ -76,7 +76,10 @@ public class DialogManager : MonoBehaviour
     public void nextLineViaReply(bool firstOption)
     {
         Debug.Log($"{GetLine(personTalking).replies.Count}........REPLIES LIST COUNT...........");
+        Debug.Log($"{GetLine(personTalking).replies[0].goToLineIndex} first reply goToLineIndex");
+        Debug.Log($"{GetLine(personTalking).replies[1].goToLineIndex} second reply goToLineIndex");
         int line = firstOption ? GetLine(personTalking).replies[0].goToLineIndex : GetLine(personTalking).replies[1].goToLineIndex;
+        Debug.Log($"{line} value of line +++++++++++++++++++++++++++++++++++++++++++++++++++++");
         Debug.Log($"{GetLine(personTalking).sceneIndex}......SCENE INDEX.............");
         Debug.Log($"{personTalking.dialogIndex}----------PERSON DIALOGINDEX BEFORE--------");
         personTalking.dialogIndex++;
@@ -129,7 +132,10 @@ public class DialogManager : MonoBehaviour
             personTwoNameplate.SetActive(true);
             personTwo.SetActive(true);
         }
-        
+        if (personTalking.characterName.Equals("User"))
+        {
+            personTwo.SetActive(false);
+        }
         
         var line = GetLine(personTalking);
         if (personTalking.dialogIndex < personTalking.dialogLines.Count) typeDialog(line.dialogLine);
@@ -159,7 +165,9 @@ public class DialogManager : MonoBehaviour
                     }
                     if (sceneIndex == 11)
                     {
-                        SceneManager.LoadScene(2);
+                        stopInput();
+                        storyScripts.Invoke(nameof(StoryScripts.EnterDialog), 4);
+                        Invoke(nameof(close),4);
                     }
                     break;
                 }
@@ -185,7 +193,16 @@ public class DialogManager : MonoBehaviour
                 continueButton.SetActive(true);
                 replyChoicePanel.SetActive(false);
                 // Only auto-advance the per-character index if there are no choices
-                personTalking.dialogIndex++;
+                if (sceneIndex == 0)
+                {
+                    personTalking.dialogIndex++;
+
+                }
+                else
+                {
+                    personTalking.dialogIndex += nextLines;
+
+                }
             }
         }
     }
@@ -222,6 +239,8 @@ public class DialogManager : MonoBehaviour
     void close()
     {
         dialogPanel.SetActive(false);
+        personOne.SetActive(false);
+        personTwo.SetActive(false);
     }
 
     void stopTyping()

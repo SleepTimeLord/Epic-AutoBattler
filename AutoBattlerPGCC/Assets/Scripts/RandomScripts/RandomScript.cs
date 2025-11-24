@@ -24,7 +24,7 @@ public class RandomScripts : MonoBehaviour
     }
     public void EnterIntroduction()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5); // Introduction Dialog Scene
     }
 
     public IEnumerator scaleUp()

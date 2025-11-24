@@ -1955,6 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerData: []
+  OGEnemyData: []
   enemyData:
   - characterDefinition: {fileID: 11400000, guid: 202758d13c666174eb800bd0c2fe00ca, type: 2}
     weaponDefinition: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}
@@ -2233,7 +2234,7 @@ PrefabInstance:
     - target: {fileID: 7789466256970948526, guid: 6d67554a00b1af54a8664211a33ef667, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2800368216342595304, guid: 4aed2ad51783fa742b4be98c4ddc5d8c, type: 3}
+      objectReference: {fileID: 2800368216342595304, guid: c5f293ae083b01c4497f41acbafc9a8a, type: 3}
     - target: {fileID: 8495688329727377623, guid: 6d67554a00b1af54a8664211a33ef667, type: 3}
       propertyPath: m_Name
       value: SichiCard
@@ -4919,7 +4920,7 @@ PrefabInstance:
     - target: {fileID: 5783418214024805378, guid: de172570256ea6b4da51e6274e474e6d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5564562942981724786, guid: e6a169d7aca828a4aa5c3c0492a80c72, type: 3}
+      objectReference: {fileID: 5564562942981724786, guid: 5041ca7d5d320dd4995f2ed596c55549, type: 3}
     - target: {fileID: 7076118448318287747, guid: de172570256ea6b4da51e6274e474e6d, type: 3}
       propertyPath: m_IsActive
       value: 0

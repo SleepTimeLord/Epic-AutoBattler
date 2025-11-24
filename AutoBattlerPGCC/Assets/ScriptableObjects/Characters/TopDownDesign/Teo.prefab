@@ -523,20 +523,20 @@ MonoBehaviour:
   initialHealth: 0
   characterName: Teo
   characterDefinition: {fileID: 11400000, guid: d8d7e80982044ec40b3a1b93e20baf33, type: 2}
-  instanceID: c5047d16-d814-43b1-9f04-863aa8d94f0c
+  instanceID: 2f4b6157-1c99-4d11-92aa-428706018e07
   description: "Post war knight who\u2019s lost his comrades. He will fight to keep
     everyone else alive."
   characterType: 0
-  intelligence: 10
-  health: 212
-  speed: 30
-  strength: 70
+  intelligence: 42
+  health: 23
+  speed: 62
+  strength: 102
   cost: 5
   passiveAbility:
-  - {fileID: 11400000, guid: 565b2d4ef1301604bb910167ea15fdec, type: 2}
+  - {fileID: 11400000, guid: 0f57f6f5b1e74284fa525763b8004913, type: 2}
   - {fileID: 11400000, guid: aecb685ead56ec245849f049171947aa, type: 2}
   activeAbility: []
-  weapon: {fileID: 11400000, guid: fc79d338ee0d2e04eac7514bdae76819, type: 2}
+  weapon: {fileID: 11400000, guid: 57dabcac87f31694dbad17c6523989d5, type: 2}
   currentWeapon: {fileID: 0}
   characterCard: {fileID: 0}
   attackAnimation: {fileID: 0}

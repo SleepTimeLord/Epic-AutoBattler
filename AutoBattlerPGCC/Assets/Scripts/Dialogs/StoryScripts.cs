@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryScripts : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class StoryScripts : MonoBehaviour
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void EnterDialog()
+    {
+        SceneManager.LoadScene(1);
     }
     
     
